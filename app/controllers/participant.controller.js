@@ -15,14 +15,24 @@ exports.findAll = (req, res) => {
 
 // Create and save a new Participant
 exports.create = (req, res) => {
-    var participant = new Participant({
+    const mturkCode = (() => {
+        var code = '';
+        var candidates = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        for (let i = 0; i < 8; i++) 
+            code += candidates.charAt(Math.floor(Math.random() * candidates.length)); 
+        return code;
+    })();
+
+    var newParticipant = new Participant({
         name: req.body.name,
         age: req.body.age,
         gender: req.body.gender,
-        ip: req.body.ip
+        ip: req.body.ip, 
+        mturkCode: mturkCode,
+        isComplete: req.body.isComplete
     });
 
-    participant.save((err, data) => {
+    newParticipant.save((err, data) => {
         console.log(data);
         if (err) {
             console.log(err);
@@ -60,6 +70,7 @@ exports.update = (req, res) => {
         participant.returned = req.body.returned;
         participant.reactionTime = req.body.reactionTime;
         participant.proportion = req.proportion;
+        participant.isComplete = req.body.isComplete;
 
         participant.save((err, data) => {
             if (err) {

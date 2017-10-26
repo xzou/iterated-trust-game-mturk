@@ -5,12 +5,14 @@ var ParticipantSchema = mongoose.Schema({
     age: Number, 
     gender: String,
     ip: String,
+    mturkCode: String,
     payoff: Number,
     opponentNumber: [Number],
     endowment: [Number],
     returned: [Number],
     reactionTime: [Number],
-    proportion: [Number]
+    proportion: [Number],
+    isComplete: Boolean
 }, {
     timestamps: true
 });
