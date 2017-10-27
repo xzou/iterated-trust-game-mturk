@@ -27,7 +27,6 @@ exports.create = (req, res) => {
         name: req.body.name,
         age: req.body.age,
         gender: req.body.gender,
-        ip: req.body.ip, 
         mturkCode: mturkCode,
         isComplete: req.body.isComplete
     });

@@ -17,8 +17,22 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Set locations of static files
-app.use(express.static(path.join(__dirname, '/dist')));
+// API file 
+const api = require('./app/routes/participant.routes');
+
+// Participant routes
+api(app);
+
+// Set locations of Angular static files
+app.use(express.static(path.join(__dirname, 'dist')));
+
+// API location
+app.use('/api', api);
+
+// Send other requests to the Angular app
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist/index.html'));
+});
 
 // Configure database
 mongoose.connect(dbConfig.url);
@@ -32,10 +46,9 @@ mongoose.connection.once('open', () => {
     console.log('Connected to database.');
 });
 
-// Require Participants routes
-require('./app/routes/participant.routes.js')(app);
-
 const server = app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
+
+
 

@@ -5,18 +5,17 @@ module.exports = (app) => {
      *  GET: finds all participants
      *  POST: creates a new participants
      */
-    app.get('/api/participants', participants.findAll);
-
-    app.post('/api/participants', participants.create);
+    app.route('/api/participants')
+        .get(participants.findAll)
+        .post(participants.create);
 
     /* '/api/participants/:id'
      *  GET: find participant by id
      *  PUT: update participant by id
      *  DELETE: delete participant by id
      */
-    app.get('/api/participants/:participantId', participants.findOne);
-
-    app.put('/api/participants/:participantId', participants.update);
-
-    app.delete('/api/participants/:participantId', participants.delete);
+    app.route('/api/participants/:participantId')
+        .get(participants.findOne)
+        .put(participants.update)
+        .delete(participants.delete);
 };

@@ -17,15 +17,11 @@ export class Participant {
         name?: string,
         age?: number,
         gender?: string,
-        ip?: string,
-        mturkCode?: string,
         isComplete?: boolean
     ) {
         this.name = name;
         this.age = age;
         this.gender = gender;
-        this.ip = ip;
-        this.mturkCode = mturkCode;
         this.isComplete = isComplete;
     }
 
