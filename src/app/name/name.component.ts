@@ -1,3 +1,9 @@
+/*
+ * Component for the experiment's first page. The participant's
+ * first name, age, gender, and IP are collected, and an entry is created
+ * in the database. 
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -5,12 +11,12 @@ import { Participant } from '../participant/participant';
 import { ParticipantService } from '../participant/participant.service';
 import { CurParticipantService } from '../participant/cur-participant.service';
 
-@Component({
-  selector: 'trust-name',
-  templateUrl: './name.component.html',
-  styleUrls: ['./name.component.css'],
-  providers: [ ParticipantService ]
-})
+  @Component({
+    selector: 'trust-name',
+    templateUrl: './name.component.html',
+    styleUrls: ['./name.component.css'],
+    providers: [ ParticipantService ]
+  })
 
 export class NameComponent implements OnInit {
 
@@ -20,13 +26,16 @@ export class NameComponent implements OnInit {
   ngOnInit() {
   }
 
-
   firstName: string = '';
   age: number;
   gender: string = '';
   isComplete: boolean = false;
 
-
+  /* 
+   * Saves the new participant to the database, and updates the participant's
+   * information in the CurParticipantService which is shared across all
+   * components. 
+   */
   createParticipant() {
     const newParticipant = new Participant(this.firstName, this.age, this.gender, this.isComplete);
     this.participantService.addParticipant(newParticipant)
@@ -38,5 +47,4 @@ export class NameComponent implements OnInit {
           this.curParticipantService.code = participant.mturkCode;
         });
   } 
-
 }
