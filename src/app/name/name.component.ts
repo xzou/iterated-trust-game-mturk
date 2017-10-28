@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { Participant } from '../participant/participant';
 import { ParticipantService } from '../participant/participant.service';
+import { CurParticipantService } from '../participant/cur-participant.service';
 
 @Component({
   selector: 'trust-name',
@@ -13,7 +14,8 @@ import { ParticipantService } from '../participant/participant.service';
 
 export class NameComponent implements OnInit {
 
-  constructor(private participantService: ParticipantService) { }
+  constructor(private participantService: ParticipantService,
+              private curParticipantService: CurParticipantService) { }
 
   ngOnInit() {
   }
@@ -26,10 +28,14 @@ export class NameComponent implements OnInit {
 
 
   createParticipant() {
-    var newParticipant = new Participant(this.firstName, this.age, this.gender, this.isComplete);
+    const newParticipant = new Participant(this.firstName, this.age, this.gender, this.isComplete);
     this.participantService.addParticipant(newParticipant)
-        .subscribe(player => {
-          console.log(player);
+        .subscribe(participant => {
+          this.curParticipantService.id = participant._id;
+          this.curParticipantService.name = participant.name;
+          this.curParticipantService.age = participant.age;
+          this.curParticipantService.gender = participant.gender;
+          this.curParticipantService.code = participant.mturkCode;
         });
   } 
 
