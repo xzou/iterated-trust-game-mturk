@@ -9,11 +9,13 @@ import { AppComponent } from './app.component';
 import { NameComponent } from './name/name.component';
 
 import { AppRouterModule } from './app-routing.module';
+import { GameComponent } from './game/game.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NameComponent
+    NameComponent,
+    GameComponent
   ],
   imports: [
     BrowserModule,

@@ -20,7 +20,8 @@ import { CurParticipantService } from '../participant/cur-participant.service';
 
 export class NameComponent implements OnInit {
 
-  constructor(private participantService: ParticipantService,
+  constructor(private router: Router,
+              private participantService: ParticipantService,
               private curParticipantService: CurParticipantService) { }
 
   ngOnInit() {
@@ -45,6 +46,8 @@ export class NameComponent implements OnInit {
           this.curParticipantService.age = participant.age;
           this.curParticipantService.gender = participant.gender;
           this.curParticipantService.code = participant.mturkCode;
-        });
+
+          this.router.navigateByUrl('/game', { replaceUrl: true });
+        }); 
   } 
 }
