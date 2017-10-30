@@ -38,9 +38,9 @@ export class Opponent {
   }
 
   drift(driftDirection): void {
-    if (driftDirection < 0) {
+    if (driftDirection < 0 && this._meanProp > 1) {
       this._meanProp -= .025;
-    } else {
+    } else if (driftDirection > 0 &&  this._meanProp < 1){
       this._meanProp += .025;
     }
   }
