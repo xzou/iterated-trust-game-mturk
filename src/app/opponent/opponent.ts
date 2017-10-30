@@ -1,13 +1,20 @@
 export class Opponent {
   public id: number;
   public meanProp: number;
+  public name: string;
 
   constructor (
     id?: number,
-    meanProp?: number
+    meanProp?: number,
+    name?: string
   ) {
     this.id = id;
     this.meanProp = meanProp;
+    this.name = name;
+  }
+
+  get oppName(): string {
+    return this.name;
   }
 
   get amount(): number {

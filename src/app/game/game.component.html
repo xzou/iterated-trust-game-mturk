@@ -6,4 +6,16 @@
         <button type="submit">Submit</button>
     </form>
     {{ this.endowment }}
+    <br>
+    <ul>
+    <li *ngFor="let opponent of oppSettings">
+        <tg-opponent [id]="opponent.id" [meanProp]="opponent.meanProp" [name]="opponent.name"></tg-opponent>
+    </li>
+    </ul>
+    
+    <div *ngIf="opponent">
+        Current player: {{ opponent.id }} ({{ opponent.name }}), meanProp: {{ opponent.meanProp }}
+    </div>
 </div> <!-- #game -->
+
+

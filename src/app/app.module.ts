@@ -10,12 +10,14 @@ import { NameComponent } from './name/name.component';
 
 import { AppRouterModule } from './app-routing.module';
 import { GameComponent } from './game/game.component';
+import { OpponentComponent } from './opponent/opponent.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NameComponent,
-    GameComponent
+    GameComponent,
+    OpponentComponent
   ],
   imports: [
     BrowserModule,

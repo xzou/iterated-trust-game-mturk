@@ -12,7 +12,7 @@ import { ParticipantService } from '../participant/participant.service';
 import { CurParticipantService } from '../participant/cur-participant.service';
 
   @Component({
-    selector: 'trust-name',
+    selector: 'tg-name',
     templateUrl: './name.component.html',
     styleUrls: ['./name.component.css'],
     providers: [ ParticipantService ]
