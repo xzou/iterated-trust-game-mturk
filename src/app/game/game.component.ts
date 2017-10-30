@@ -15,9 +15,9 @@ export class GameComponent implements OnInit, AfterViewInit {
   oppId: number;
   opponent: OpponentComponent; 
   oppSettings = [
-    { id: 1, meanProp: .35, name: 'Player A' },
+    { id: 1, meanProp: .25, name: 'Player A' },
     { id: 2, meanProp: .5, name: 'Player B'},
-    { id: 3, meanProp: .65, name: 'Player C'}
+    { id: 3, meanProp: .75, name: 'Player C'}
   ]; 
   oppArray: OpponentComponent[]; 
    
