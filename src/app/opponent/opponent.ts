@@ -13,14 +13,6 @@ export class Opponent {
     this.name = name;
   }
 
-  get oppName(): string {
-    return this.name;
-  }
-
-  get amount(): number {
-    return 1000;
-  }
-
   drift(driftDirection): void {
     if (driftDirection < 0) {
       this.meanProp -= .025;
