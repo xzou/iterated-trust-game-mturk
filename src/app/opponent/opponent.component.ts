@@ -13,14 +13,17 @@ export class OpponentComponent implements OnInit {
   @Input() meanProp: number;
   @Input() name: string;
 
-  public player: Opponent;
+  private _player: Opponent;
 
   constructor() {
   }
 
-  ngOnInit() {
-    this.player = new Opponent(this.id, this.meanProp, this.name);
+  get player(): Opponent {
+    return this._player;
   }
 
+  ngOnInit() {
+    this._player = new Opponent(this.id, this.meanProp, this.name);
+  }
 
 }

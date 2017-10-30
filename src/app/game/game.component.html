@@ -14,8 +14,10 @@
     </ul>
     
     <div *ngIf="opponent">
-        Current player: {{ opponent.id }} ({{ opponent.name }}), meanProp: {{ opponent.meanProp }}
+        Current player: {{ opponent.player.id }} ({{ opponent.player.name }}), meanProp: {{ opponent.player.meanProp }}
     </div>
+
+    <button (click)="drift()">Drift</button>
 </div> <!-- #game -->
 
 

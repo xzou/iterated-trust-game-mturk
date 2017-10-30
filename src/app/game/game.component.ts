@@ -36,6 +36,11 @@ export class GameComponent implements OnInit, AfterViewInit {
     console.log(this.opponent);
   }
 
+  drift() {
+    this.opponent.player.drift(1);
+    console.log(this.opponent.player);
+  }
+
   setEndowment() {
     console.log(this.endowment);
   }
