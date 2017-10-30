@@ -1,6 +1,6 @@
 <div id="game"> 
     <div [hidden]="inRound"id="opponents-panel"> 
-        <button (click)="playRound()">Choose Opponent</button>
+        <button (click)="selectOpponent()">Choose Opponent</button>
         <ul>
         <li *ngFor="let opponent of oppSettings">
             <tg-opponent [id]="opponent.id" [meanProp]="opponent.meanProp" [name]="opponent.name"></tg-opponent>

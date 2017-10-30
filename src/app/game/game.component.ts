@@ -44,12 +44,8 @@ export class GameComponent implements OnInit, AfterViewInit {
     this.opponent.player.drift(1);
   }
 
-  playRound() {
-    this.inRound = true;
-    this.selectOpponent();
-  }
-
   selectOpponent() {
+    this.inRound = true;
     this.trialNumber++;
     if (this.trialNumber % 3 === 1) {
       this.oppIds = this.createRoundOrder(); 
