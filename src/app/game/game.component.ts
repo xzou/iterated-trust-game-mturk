@@ -18,7 +18,8 @@ export class GameComponent implements OnInit, AfterViewInit {
   readonly down = -1;
 
   endowment: number = 0.5;
-  inRound: boolean = false;
+  endowmentSubmitted: boolean = false;
+  inTrial: boolean = false;
   oppIds: number[];
   opponent: OpponentComponent; 
   oppSettings = [
@@ -46,8 +47,13 @@ export class GameComponent implements OnInit, AfterViewInit {
    * Component functions
    */
 
+  nextTrial(): void {
+    this.inTrial = false;
+    this.endowmentSubmitted = false;
+  }
+
   selectOpponent(): void {
-    this.inRound = true;
+    this.inTrial = true;
     this.trialNumber++;
     if (this.trialNumber % 3 === 1) {
       this.oppIds = this.createRoundOrder(); 
@@ -67,7 +73,7 @@ export class GameComponent implements OnInit, AfterViewInit {
     let oppReturn = this.opponent.player.getReturn(this.endowment);
     this.curParticipantService.addEndowment(this.endowment);
     this.curParticipantService.addReturn(oppReturn);
-    this.inRound = false;
+    this.endowmentSubmitted = true;
   }
  
   /*
