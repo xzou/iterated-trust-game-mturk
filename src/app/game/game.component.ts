@@ -22,7 +22,7 @@ export class GameComponent implements OnInit, AfterViewInit {
   ]; 
   oppArray: OpponentComponent[]; 
   trialNumber: number = 0;
-   
+
   constructor() { }
 
   /* 
@@ -40,11 +40,11 @@ export class GameComponent implements OnInit, AfterViewInit {
    * Component functions
    */
 
-  drift() {
+  drift(): void {
     this.opponent.player.drift(1);
   }
 
-  selectOpponent() {
+  selectOpponent(): void {
     this.inRound = true;
     this.trialNumber++;
     if (this.trialNumber % 3 === 1) {
@@ -56,6 +56,7 @@ export class GameComponent implements OnInit, AfterViewInit {
 
   setEndowment() {
     console.log(this.endowment);
+    console.log(this.opponent.player.getReturn(this.endowment));
     this.inRound = false;
   }
  
