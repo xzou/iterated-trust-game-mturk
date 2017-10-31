@@ -79,20 +79,40 @@ export class CurParticipantService {
     this._participant.payoff = amount;
   }
 
-  addOpponentNumber(num: number) {
+  get opponents(): number[] {
+    return this._participant.opponentNumber;
+  }
+
+  addOpponent(num: number) {
     this._participant.opponentNumber.push(num);
+  }
+
+  get endowments(): number[] {
+    return this._participant.endowment; 
   }
 
   addEndowment(amount: number) {
     this._participant.endowment.push(amount);
   }
 
+  get returns(): number[] {
+    return this._participant.returned;
+  }
+
   addReturn(amount: number) {
     this._participant.returned.push(amount);
   }
 
+  get reactionTimes(): number[] {
+    return this._participant.reactionTime;
+  }
+
   addReactTime(time: number) {
     this._participant.reactionTime.push(time);
+  }
+
+  get proportions(): number[] {
+    return this._participant.proportion;
   }
 
   addProportion(proportion: number) {

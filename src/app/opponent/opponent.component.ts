@@ -12,6 +12,7 @@ export class OpponentComponent implements OnInit {
   @Input() id: number;
   @Input() meanProp: number;
   @Input() name: string;
+  @Input() directions: number[];
 
   private _player: Opponent;
 

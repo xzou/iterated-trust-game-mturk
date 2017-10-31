@@ -1,4 +1,8 @@
 export class Opponent {
+
+  // Rate at which mean proportion drifts
+  readonly rate: number = .025; 
+
   private _id: number;
   private _meanProp: number;
   private _name: string;
@@ -38,10 +42,10 @@ export class Opponent {
   }
 
   drift(driftDirection: number): void {
-    if (driftDirection < 0 && this._meanProp > 1) {
-      this._meanProp -= .025;
-    } else if (driftDirection > 0 &&  this._meanProp < 1){
-      this._meanProp += .025;
+    if (driftDirection < 0 && +(this._meanProp - this.rate).toFixed(3) > 0) {
+      this._meanProp -= this.rate;
+    } else if (driftDirection > 0 &&  +(this._meanProp + this.rate).toFixed(3) < 1){
+      this._meanProp += this.rate;
     }
   }
 

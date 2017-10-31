@@ -1,9 +1,10 @@
 <div id="game"> 
+    <h3>Round {{ trialNumber }}</h3>
     <div [hidden]="inRound"id="opponents-panel"> 
         <button (click)="selectOpponent()">Choose Opponent</button>
         <ul>
         <li *ngFor="let opponent of oppSettings">
-            <tg-opponent [id]="opponent.id" [meanProp]="opponent.meanProp" [name]="opponent.name"></tg-opponent>
+            <tg-opponent [id]="opponent.id" [meanProp]="opponent.meanProp" [name]="opponent.name" [directions]="opponent.directions"></tg-opponent>
         </li>
         </ul> 
     </div> <!-- #opponents-panel -->
