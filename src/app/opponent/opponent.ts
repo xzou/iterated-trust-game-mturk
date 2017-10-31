@@ -41,11 +41,20 @@ export class Opponent {
     this._name = name;
   }
 
+  /* 
+   * Changes the mean proportion based on preset directions.
+   * For the calculation, meanProp and rate are multiplied by 1000
+   * in order to avoid JavaScript floating point precision issue.
+   */
   drift(driftDirection: number): void {
-    if (driftDirection < 0 && +(this._meanProp - this.rate).toFixed(3) > 0) {
-      this._meanProp -= this.rate;
-    } else if (driftDirection > 0 &&  +(this._meanProp + this.rate).toFixed(3) < 1){
-      this._meanProp += this.rate;
+    var meanPropShifted = this._meanProp * 1000; 
+    var rate = this.rate * 1000;
+    if (driftDirection < 0 && (meanPropShifted - rate) >= 0) {
+      meanPropShifted -= rate;
+      this._meanProp = meanPropShifted / 1000;
+    } else if (driftDirection > 0 &&  (meanPropShifted + rate) <= 1000){
+      meanPropShifted += rate;
+      this._meanProp = meanPropShifted / 1000;
     }
   }
 
