@@ -17,6 +17,9 @@ export class GameComponent implements OnInit, AfterViewInit {
   readonly up = 1;
   readonly down = -1;
 
+  // Remove this later
+  oppReturn: number; 
+
   endowment: number = 0.5;
   endowmentSubmitted: boolean = false;
   inTrial: boolean = false;
@@ -70,9 +73,9 @@ export class GameComponent implements OnInit, AfterViewInit {
   }
 
   setEndowment() {
-    let oppReturn = this.opponent.player.getReturn(this.endowment);
+    this.oppReturn = this.opponent.player.getReturn(this.endowment);
     this.curParticipantService.addEndowment(this.endowment);
-    this.curParticipantService.addReturn(oppReturn);
+    this.curParticipantService.addReturn(this.oppReturn);
     this.endowmentSubmitted = true;
   }
  
