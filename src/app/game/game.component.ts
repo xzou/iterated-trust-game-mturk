@@ -46,13 +46,6 @@ export class GameComponent implements OnInit, AfterViewInit {
    * Component functions
    */
 
-  drift(): void {
-    console.log(this.opponent.directions);
-    var direction = this.opponent.directions[0];
-    console.log(direction);
-    this.opponent.player.drift(direction);
-  }
-
   selectOpponent(): void {
     this.inRound = true;
     this.trialNumber++;
@@ -62,6 +55,12 @@ export class GameComponent implements OnInit, AfterViewInit {
     let oppId = this.oppIds.shift(); 
     this.opponent = this.oppArray[oppId];
     this.curParticipantService.addOpponent(oppId);
+
+    if(this.inVolatilityPeriod()) {
+      let dirIdx = this.getDirectionsIdx(this.trialNumber); 
+      let direction = this.opponent.directions[dirIdx];
+      this.opponent.player.drift(direction);
+    }
   }
 
   setEndowment() {
@@ -85,6 +84,31 @@ export class GameComponent implements OnInit, AfterViewInit {
       ids.push(id); 
     }
     return ids;
+  }
+
+  getRoundNumber(trial: number): number {
+    while (trial - 60 > 0)
+      trial -= 60;
+    return trial;
+  }
+
+  inVolatilityPeriod(): boolean {
+    let round = this.getRoundNumber(this.trialNumber); 
+    return (
+      (round > 10 && round <= 20) ||
+      (round > 30 && round <= 40) ||
+      (round > 50 && round <= 60)
+    );
+  }
+
+  /**
+   * Returns the index of the drift direction in the directions array.
+   * The direction index depends on the trial number. 
+   * E.g. in rounds 11 through 20, the shift direction can be found
+   * in directions[0].
+   */
+  getDirectionsIdx(trial: number) {
+    return Math.floor((trial - 10) / 10) / 2; 
   }
 }
 
