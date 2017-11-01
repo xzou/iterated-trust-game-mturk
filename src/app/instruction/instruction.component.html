@@ -1,6 +1,6 @@
 <div>
   <span [innerHTML]="text"></span>
   <button *ngIf="page > 1" (click)="setPage(page - 1)">Back</button>
-  <button (click)="setPage(page + 1)">Next</button> 
+  <button *ngIf="page < 17" (click)="setPage(page + 1)">Next</button> 
 </div>
 
