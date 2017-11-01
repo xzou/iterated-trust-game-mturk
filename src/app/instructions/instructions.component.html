@@ -1,3 +1,7 @@
-<p>
-  instructions works!
-</p>
+<div id="instructions">
+  <!--  <tg-instruction *ngIf="page === 1" [page]="test.page" [text]="test.text"  (pageChange)="pageChange($event)"></tg-instruction> -->
+  <div *ngFor="let instruction of instructions">
+    <tg-instruction *ngIf="page === instruction.page" [page]="instruction.page" [text]="instruction.text" (pageChange)="pageChange($event)"></tg-instruction>
+  </div>
+
+</div> <!-- #instructions -->

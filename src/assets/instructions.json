@@ -1,0 +1,70 @@
+[
+  { 
+    "page": 1, 
+    "text": "<h4>Welcome!</h4><p>Today you'll be playing a game that involves making a series of decisions with other players online.</p><p>You goal in the game is to collect as many points as possible, as the number of points you collect will determine how much money you will receive in bonus payment at the end of the game."
+  },
+  {
+    "page": 2,
+    "text":  "<p>The game will involve a series of rounds with <strong>3 different opponents</strong> that you will be paired with online.</p>"
+  },
+  {
+    "page": 3, 
+    "text": "<p>On each round, you will first press the red button, which will pair you with the other player that you are playing with on that round.</p>"
+  },
+  {
+    "page": 4,
+    "text": "<p>After you have been paired with a player on that round, you will be asked to decide how much of $1.00 you would like to invest by sending it to the other player and how much to keep for yourself.</p>"
+  },
+  {
+    "page": 5,
+    "text": "<p>For example, you can decide how much of $1.00, in increments of $0.10, you would like to invest in the other player using the sliding scale shown to the right.</p>"
+  },
+  {
+    "page": 6,
+    "text": "<p>However, you must make a minimum investment of $0.10, so <strong>$0 is not an option.</strong></p><p>Otherwise, feel free to invest as much or as little as you would like.</p>"
+  },
+  {
+    "page": 7,
+    "text": "<p>After you decide how much of $1.00 you want to invest in the other player, the other player will receive <strong>double</strong> your investment amount.</p>" 
+  },
+  {
+    "page": 8,
+    "text": "</p>For example, if you decide to invest $0.60, you will give $0.60 and you will keep $0.40 on that round. The $0.60 you decide to invest will be doubled to $1.20.</p>"
+  },
+  {
+    "page": 9,
+    "text": "<p>The other player, in this case Player 3, will receive the $1.20 (the $0.60 you decided to invest that was doubled) and will then decide how much of the $1.20 they would like to keep that round, and how much they would like to give back to you.</p>"
+  },
+  {
+    "page": 10,
+    "text": "<p>Keep in mind that the other player can decide to keep all the money (all $1.20), give you back all the money, or give you back a portion of it (e.g. $0.90).</p>"
+  },
+  {
+    "page": 11,
+    "text": "<p>To recap, on each round of this game, you will first press the red button to be paired with one of 3 players.</p>"
+  },
+  {
+    "page": 12,
+    "text": "<p>You will then decide how much of $1.00 to invest, and how much to keep for yourself, keeping in mind that <strong>$0 is not an option.</strong></p>"
+  },
+  {
+    "page": 13,
+    "text": "<p>Whatever money you decide to invest will then be doubled as it is sent to the other player.</p>"
+  },
+  {
+    "page": 14,
+    "text": "<p>The other player will then decide how much money they would like to keep for themselves and how much to return back to you.</p><p>After the other player makes their decision, you will be notified of their decisions and the outcome on that round.</p>"
+  },
+  {
+    "page": 15,
+    "text": "<p>After you find out the results for the round, the game will reset. You will then receive another $1.00 to invest, and you will push the button again to play with another player.</p>"
+  },
+  {
+    "page": 16,
+    "text": "<p>At the end of the game, we will randomly select 2 of your rounds to determine your bonus payment, so the best strategy is to try to win as much money as possible on each round.</p>"
+  },
+  {
+    "page": 17,
+    "text": "<p>You will play a series of rounds in this game. In total, the game will probably take you 30 minutes. If you do not have 30 minutes to complete this task, please exit now and do not proceed.</p><p>If you would like to play this game, please proceed to answer the quiz question correctly in order to enter the game and be paired with other players online.</p>"
+  }
+]

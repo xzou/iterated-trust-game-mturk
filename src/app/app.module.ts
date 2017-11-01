@@ -12,6 +12,7 @@ import { AppRouterModule } from './app-routing.module';
 import { GameComponent } from './game/game.component';
 import { OpponentComponent } from './opponent/opponent.component';
 import { InstructionsComponent } from './instructions/instructions.component';
+import { InstructionComponent } from './instruction/instruction.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { InstructionsComponent } from './instructions/instructions.component';
     NameComponent,
     GameComponent,
     OpponentComponent,
-    InstructionsComponent
+    InstructionsComponent,
+    InstructionComponent
   ],
   imports: [
     BrowserModule,
