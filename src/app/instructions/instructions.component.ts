@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 
 import { InstructionComponent } from '../instruction/instruction.component';
+import { NavButtonComponent } from '../nav-button/nav-button.component';
 
 @Component({
   selector: 'tg-instructions',
