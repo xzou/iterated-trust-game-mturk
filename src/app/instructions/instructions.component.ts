@@ -12,10 +12,14 @@ import { InstructionComponent } from '../instruction/instruction.component';
 export class InstructionsComponent implements OnInit {
   page: number = 1;
   instructions: {page: number, text: string, imgSrc: string}[];
+  maxPage: number; 
 
   constructor(private http: Http) {
     this.http.get('/assets/instructions.json')
-              .subscribe(res => this.instructions = res.json()); 
+              .subscribe(res => {
+                this.instructions = res.json();
+                this.maxPage = this.instructions.length;
+              }); 
   }
 
   ngOnInit() {
