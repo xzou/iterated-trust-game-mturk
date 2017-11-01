@@ -11,13 +11,15 @@ import { NameComponent } from './name/name.component';
 import { AppRouterModule } from './app-routing.module';
 import { GameComponent } from './game/game.component';
 import { OpponentComponent } from './opponent/opponent.component';
+import { InstructionsComponent } from './instructions/instructions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NameComponent,
     GameComponent,
-    OpponentComponent
+    OpponentComponent,
+    InstructionsComponent
   ],
   imports: [
     BrowserModule,

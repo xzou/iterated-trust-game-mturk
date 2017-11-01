@@ -47,7 +47,7 @@ export class NameComponent implements OnInit {
           this.curParticipantService.gender = participant.gender;
           this.curParticipantService.code = participant.mturkCode;
 
-          this.router.navigateByUrl('/game', { replaceUrl: true });
+          this.router.navigateByUrl('/instructions', { replaceUrl: true });
         }); 
   } 
 }
