@@ -8,6 +8,8 @@ import { Component, EventEmitter, OnInit, AfterViewInit, Input, Output } from '@
 export class InstructionComponent implements OnInit, AfterViewInit {
   @Input() page: number;
   @Input() text: string;
+  @Input() imgSrc: string;
+
   @Output() pageChange = new EventEmitter<number>();
 
   curPage: number;
