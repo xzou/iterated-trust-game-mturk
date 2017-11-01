@@ -4,5 +4,5 @@
     <tg-instruction *ngIf="page === instruction.page" [page]="instruction.page" [text]="instruction.text" [imgSrc]="instruction.img" [maxPage]="maxPage" (pageChange)="pageChange($event)"></tg-instruction>
   </div>
 
-  <tg-nav-button *ngIf="page === maxPage" url="game" label="Go to Quiz"></tg-nav-button>
+  <tg-nav-button *ngIf="page === maxPage" url="quiz" label="Go to Quiz"></tg-nav-button>
 </div> <!-- #instructions -->

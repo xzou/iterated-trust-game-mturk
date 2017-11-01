@@ -14,6 +14,7 @@ import { OpponentComponent } from './opponent/opponent.component';
 import { InstructionsComponent } from './instructions/instructions.component';
 import { InstructionComponent } from './instruction/instruction.component';
 import { NavButtonComponent } from './nav-button/nav-button.component';
+import { QuizComponent } from './quiz/quiz.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NavButtonComponent } from './nav-button/nav-button.component';
     OpponentComponent,
     InstructionsComponent,
     InstructionComponent,
-    NavButtonComponent
+    NavButtonComponent,
+    QuizComponent
   ],
   imports: [
     BrowserModule,

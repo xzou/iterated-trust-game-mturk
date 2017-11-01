@@ -1,0 +1,33 @@
+<div id="quiz">
+  <div *ngIf="!answerSubmitted" id="question-panel">
+    <h2>Quiz</h2>
+    <span id="warning">
+      <p><strong>You must answer this question correctly to continue.</strong></p>
+    </span>
+
+    <span id="question">
+      <h4>What happens if you decide to invest $0.40 during a round?</h4>
+    </span>
+
+    <form (ngSubmit)="checkAnswer()">
+      <input type="radio" name="quizAnswer" id="option1" [(ngModel)]="answer" value=1>
+        <label for="option1">Choice 1</label>
+      <input type="radio" name="quizAnswer" id="option2" [(ngModel)]="answer" value=2>
+        <label for="option2">Choice 2</label>
+      <button type="submit" [disabled]="answer === ''">Submit</button>
+    </form>
+  </div> <!-- #question-panel -->
+
+  <div *ngIf="answerSubmitted" id="feedback">
+    <div *ngIf="isCorrect">
+      <p>Congratulations!</p>
+      <p>You have answered the quiz question correctly, and may enter the game.</p>
+      <p>Please wait while we pair you with other players online.</p>
+    </div>
+
+    <div *ngIf="!isCorrect">
+      <p>We're sorry. Your answer was incorrect.</p>
+      <p>This session will now be terminated. Have a nice day!</p>
+    </div>
+  </div> <!-- #feedback -->
+</div> <!-- #quiz -->
