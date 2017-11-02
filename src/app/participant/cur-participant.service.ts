@@ -117,6 +117,8 @@ export class CurParticipantService {
 
   addProportion(proportion: number) {
     this._participant.proportion.push(proportion);
+    console.log("Function called");
+    console.log(this._participant.proportion);
   }
 
   setComplete() {

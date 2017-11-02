@@ -1,16 +1,18 @@
-import { Component, OnInit, AfterViewInit, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, ViewChildren, QueryList } from '@angular/core';
 
 import { OpponentComponent } from '../opponent/opponent.component';
+import { NavButtonComponent } from '../nav-button/nav-button.component';
 import { ParticipantService } from '../participant/participant.service';
 import { CurParticipantService } from '../participant/cur-participant.service';
 
 @Component({
   selector: 'tg-game',
   templateUrl: './game.component.html',
-  styleUrls: ['./game.component.css']
+  styleUrls: ['./game.component.css'],
+  providers: [ ParticipantService ]
 })
 
-export class GameComponent implements OnInit, AfterViewInit {
+export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChildren(OpponentComponent) opponents: QueryList<OpponentComponent>
 
   // "Constants" for use in the drift function
@@ -31,15 +33,21 @@ export class GameComponent implements OnInit, AfterViewInit {
     { id: 3, meanProp: .75, name: 'Thomas', directions: [this.up, this.up, this.up] }
   ]; 
   oppArray: OpponentComponent[]; 
-  trialNumber: number = 0;
+  trialNumber: number = 1;
 
-  constructor(private curParticipantService: CurParticipantService) { }
+  constructor(private participantService: ParticipantService,
+              private curParticipantService: CurParticipantService) { }
 
   /* 
    * Angular lifecycle hooks
    */
 
   ngOnInit() {
+  }
+
+  ngOnDestroy() {
+    this.participantService.updateParticipant(this.curParticipantService.participant)
+                            .subscribe(() => console.log('Success'!));
   }
 
   ngAfterViewInit() {
@@ -53,23 +61,25 @@ export class GameComponent implements OnInit, AfterViewInit {
   nextTrial(): void {
     this.inTrial = false;
     this.endowmentSubmitted = false;
+    this.trialNumber++;
   }
 
   selectOpponent(): void {
     this.inTrial = true;
-    this.trialNumber++;
     if (this.trialNumber % 3 === 1) {
       this.oppIds = this.createRoundOrder(); 
     } 
     let oppId = this.oppIds.shift(); 
     this.opponent = this.oppArray[oppId];
-    this.curParticipantService.addOpponent(oppId);
+    this.curParticipantService.addOpponent(oppId + 1);
 
     if(this.inVolatilityPeriod()) {
       let dirIdx = this.getDirectionsIdx(this.trialNumber); 
       let direction = this.opponent.directions[dirIdx];
       this.opponent.player.drift(direction);
     }
+    console.log("Mean prop: " + this.opponent.player.meanProp);
+    this.curParticipantService.addProportion(this.opponent.player.meanProp);
   }
 
   setEndowment() {

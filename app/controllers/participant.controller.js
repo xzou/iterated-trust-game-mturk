@@ -68,7 +68,7 @@ exports.update = (req, res) => {
         participant.endowment = req.body.endowment;
         participant.returned = req.body.returned;
         participant.reactionTime = req.body.reactionTime;
-        participant.proportion = req.proportion;
+        participant.proportion = req.body.proportion;
         participant.isComplete = req.body.isComplete;
 
         participant.save((err, data) => {
