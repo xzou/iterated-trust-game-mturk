@@ -1,7 +1,7 @@
 [
   { 
     "page": 1, 
-    "text": "<h4>Welcome!</h4><p>Today you'll be playing a game that involves making a series of decisions with other players online.</p><p>You goal in the game is to collect as many points as possible, as the number of points you collect will determine how much money you will receive in bonus payment at the end of the game.",
+    "text": "<h4>Welcome!</h4><p>Today you'll be playing a game that involves making a series of decisions with other players online.</p><p>Your goal in the game is to collect as many points as possible, as the number of points you collect will determine how much money you will receive in bonus payment at the end of the game.",
     "img": ""
   },
   {
@@ -85,3 +85,4 @@
     "img": "/assets/images/image17.jpg"
   }
 ]
+
