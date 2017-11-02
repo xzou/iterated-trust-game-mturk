@@ -1,0 +1,11 @@
+<div id="opponent-search">
+  <div *ngIf="!opponentFound" id="finding-opponent">
+    <p>Finding opponent...</p>
+  </div>
+
+  <div *ngIf="opponentFound" id="opponent-found">
+    <p>Opponents found! You will be playing with:</p>
+    <div *ngFor="let player of players">{{ player }}</div>
+    <tg-nav-button url="game" label="Proceed"></tg-nav-button>
+  </div>
+</div> <!-- #opponent-search -->

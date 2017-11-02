@@ -18,7 +18,7 @@
     </form>
   </div> <!-- #question-panel -->
 
-  <div *ngIf="isFeedback()" id="feedback">
+  <div *ngIf="answerSubmitted" id="feedback">
     <div *ngIf="isCorrect">
       <p>Congratulations!</p>
       <p>You have answered the quiz question correctly, and may enter the game.</p>

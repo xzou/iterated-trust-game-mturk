@@ -30,8 +30,4 @@ export class QuizComponent implements OnInit {
     }
     this.answerSubmitted = true;
   }
-
-  isFeedback(): boolean {
-    return this.answerSubmitted; 
-  }
 }
