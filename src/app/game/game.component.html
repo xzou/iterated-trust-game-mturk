@@ -20,10 +20,11 @@
             <button type="submit" *ngIf="!endowmentSubmitted">Submit</button>
         </form>
         <h4>Endowment: {{ endowment }}</h4>
-        <h4>Return: {{ oppReturn }} </h4>
         <div *ngIf="endowmentSubmitted">
-            <p>You gave {{ opponent.player.name }} {{ endowment }}, and {{ opponent.player.name }} returned {{ oppReturn }}.</p>
-            <p>Your net gain on this trial is {{ this.netGain }}</p>
+            <h4>Return: {{ oppReturn }} </h4>
+            <p>You gave {{ opponent.player.name }} {{ endowment }}, and kept {{ (1 - endowment).toFixed(2) }} for yourself.</p>
+            <p>{{ opponent.player.name }} returned {{ oppReturn }}.</p>
+            <p>Your net gain on this trial is {{ netGain }}</p>
         </div>
 
         <button *ngIf="endowmentSubmitted" (click)="nextTrial()">Next Round</button>
