@@ -1,11 +1,11 @@
 <div id="payoff">
   <h3>Congratulations! You have completed the game.</h3>
   <p>As mentioned in the instructions, your final payoff is determined by taking the sum 
-  of your net gains from two random rounds. Those rounds are <strong>Round {{ idx1 }}</strong>
-  and <strong>Round {{ idx2 }}.</strong></p>
+  of your net gains from two random rounds. Those rounds are <strong>Round {{ idx1 + 1 }}</strong>
+  and <strong>Round {{ idx2 + 1 }}.</strong></p>
   <p>The final calculation for your payoff is as follows:</p>
-  <p>Round {{ idx1 }}: Net gain = {{ netGain1 }}</p>
-  <p>Round {{ idx2 }}: Net gain = {{ netGain2 }}</p>
+  <p>Round {{ idx1 + 1 }}: Net gain = {{ netGain1 }}</p>
+  <p>Round {{ idx2 + 1 }}: Net gain = {{ netGain2 }}</p>
   <p>Payoff = {{ netGain1 }} + {{ netGain2 }} = {{ payoff }}.</p>
   <tg-nav-button url="code" label="Proceed"></tg-nav-button>
 </div>
