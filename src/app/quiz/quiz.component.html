@@ -18,16 +18,18 @@
     </form>
   </div> <!-- #question-panel -->
 
-  <div *ngIf="answerSubmitted" id="feedback">
+  <div *ngIf="isFeedback()" id="feedback">
     <div *ngIf="isCorrect">
       <p>Congratulations!</p>
       <p>You have answered the quiz question correctly, and may enter the game.</p>
-      <p>Please wait while we pair you with other players online.</p>
+      <p>Click "Proceed" to get matched with other players online.</p>
+      <tg-nav-button url="opponent-search" label="Proceed"></tg-nav-button>
     </div>
 
     <div *ngIf="!isCorrect">
       <p>We're sorry. Your answer was incorrect.</p>
-      <p>This session will now be terminated. Have a nice day!</p>
+      <p>Your session has been terminated. Have a nice day!</p>
     </div>
   </div> <!-- #feedback -->
+
 </div> <!-- #quiz -->

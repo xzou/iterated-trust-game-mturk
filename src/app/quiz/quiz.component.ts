@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { NavButtonComponent } from '../nav-button/nav-button.component';
 
 @Component({
   selector: 'app-quiz',
@@ -10,18 +13,25 @@ export class QuizComponent implements OnInit {
   answer: string = ''; 
   answerSubmitted: boolean = false;
   isCorrect: boolean;
+  isFindOpponents: boolean = false;
 
-  constructor() { }
+  players: string[] = ['Chris', 'John', 'Thomas'];
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   checkAnswer(): void {
-    if (this.answer === '1') 
+    if (this.answer === '1') {
       this.isCorrect = true;
-    else
+    } else {
       this.isCorrect = false;
+    }
     this.answerSubmitted = true;
   }
 
+  isFeedback(): boolean {
+    return this.answerSubmitted; 
+  }
 }
