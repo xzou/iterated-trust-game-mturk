@@ -28,9 +28,9 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
   oppIds: number[];
   opponent: OpponentComponent; 
   oppSettings = [
-    { id: 1, meanProp: .25, name: 'Chris', directions: [this.down, this.down, this.up] },
+    { id: 1, meanProp: .25, name: 'Chris', directions: [this.up, this.up, this.up] },
     { id: 2, meanProp: .5, name: 'John', directions: [this.down, this.up, this.up] },
-    { id: 3, meanProp: .75, name: 'Thomas', directions: [this.up, this.up, this.up] }
+    { id: 3, meanProp: .75, name: 'Thomas', directions: [this.down, this.down, this.up] }
   ]; 
   oppArray: OpponentComponent[]; 
   trialNumber: number = 1;
@@ -78,7 +78,6 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
       let direction = this.opponent.directions[dirIdx];
       this.opponent.player.drift(direction);
     }
-    console.log("Mean prop: " + this.opponent.player.meanProp);
     this.curParticipantService.addProportion(this.opponent.player.meanProp);
   }
 
