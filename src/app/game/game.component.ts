@@ -25,6 +25,7 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
   endowment: number = 0.5;
   endowmentSubmitted: boolean = false;
   inTrial: boolean = false;
+  netGain: number = 0;
   oppIds: number[];
   opponent: OpponentComponent; 
   oppSettings = [
@@ -85,6 +86,7 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
     this.oppReturn = this.opponent.player.getReturn(this.endowment);
     this.curParticipantService.addEndowment(this.endowment);
     this.curParticipantService.addReturn(this.oppReturn);
+    this.netGain = +((1 - this.endowment + this.oppReturn).toFixed(2));
     this.endowmentSubmitted = true;
   }
  
