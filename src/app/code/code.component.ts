@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { CurParticipantService } from '../participant/cur-participant.service';
 
 @Component({
-  selector: 'app-code',
+  selector: 'tg-code',
   templateUrl: './code.component.html',
   styleUrls: ['./code.component.css']
 })

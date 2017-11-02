@@ -6,7 +6,7 @@ import { CurParticipantService } from '../participant/cur-participant.service';
 import { ParticipantService } from '../participant/participant.service';
 
 @Component({
-  selector: 'app-quiz',
+  selector: 'tg-quiz',
   templateUrl: './quiz.component.html',
   styleUrls: ['./quiz.component.css'],
   providers: [ ParticipantService ]
@@ -38,3 +38,4 @@ export class QuizComponent implements OnInit {
                             .subscribe(() => this.answerSubmitted = true);
   }
 }
+
