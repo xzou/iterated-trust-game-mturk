@@ -1,18 +1,19 @@
 var mongoose = require('mongoose');
 
 var ParticipantSchema = mongoose.Schema({
-    name: String,
     age: Number, 
     gender: String,
     ip: String,
+    isComplete: Boolean,
+    isCorrect: Boolean,
     mturkCode: String,
+    name: String,
     payoff: Number,
-    opponentNumber: [Number],
     endowment: [Number],
-    returned: [Number],
-    reactionTime: [Number],
+    opponentNumber: [Number],
     proportion: [Number],
-    isComplete: Boolean
+    reactionTime: [Number],
+    returned: [Number],
 }, {
     timestamps: true
 });

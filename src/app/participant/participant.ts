@@ -1,17 +1,18 @@
 export class Participant {
     public _id?: string;
-    public name?: string;
     public age?: number;
     public gender?: string;
     public ip?: string;
-    public mturkCode?: string;
-    public payoff?: number;
-    public opponentNumber?: number[];
-    public endowment?: number[];
-    public returned?: number[];
-    public reactionTime?: number[];
-    public proportion?: number[];
     public isComplete?: boolean; 
+    public isCorrect?: boolean;
+    public mturkCode?: string;
+    public name?: string;
+    public payoff?: number;
+    public endowment?: number[];
+    public opponentNumber?: number[];
+    public proportion?: number[];
+    public reactionTime?: number[];
+    public returned?: number[];
     
     constructor (
         name?: string,

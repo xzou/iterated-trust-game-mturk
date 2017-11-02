@@ -9,18 +9,19 @@ export class CurParticipantService {
 
   private _participant: Participant = {
     _id: '',
-    name: '',
     age: 0,
     gender: '',
     ip: '',
+    isComplete: false,
+    isCorrect: false,
     mturkCode: '',
+    name: '',
     payoff: 0,
-    opponentNumber: [],
     endowment: [],
-    returned: [],
-    reactionTime: [],
     proportion: [],
-    isComplete: false
+    opponentNumber: [],
+    reactionTime: [],
+    returned: []
   };
 
   get participant(): Participant {
@@ -29,14 +30,6 @@ export class CurParticipantService {
 
   set id(id: string) {
     this._participant._id = id;
-  }
-
-  get name(): string {
-    return this._participant.name;
-  }
-
-  set name(firstName: string) {
-    this._participant.name = firstName;
   }
 
   get age(): number {
@@ -51,10 +44,18 @@ export class CurParticipantService {
     return this._participant.gender;
   }
 
+  get code(): string {
+    return this._participant.mturkCode;
+  }
+
+  set code(mturkCode: string) {
+    this._participant.mturkCode = mturkCode;
+  }
+
   set gender(gender: string) {
     this._participant.gender = gender;
   }
-  
+
   get ip(): string {
     return this._participant.ip;
   }
@@ -63,12 +64,20 @@ export class CurParticipantService {
     this._participant.ip = ip;
   }
 
-  get code(): string {
-    return this._participant.mturkCode;
+  get isCorrect(): boolean {
+    return this._participant.isCorrect;
   }
 
-  set code(mturkCode: string) {
-    this._participant.mturkCode = mturkCode;
+  set isCorrect(state: boolean) {
+    this._participant.isCorrect = state; 
+  }
+
+  get name(): string {
+    return this._participant.name;
+  }
+
+  set name(firstName: string) {
+    this._participant.name = firstName;
   }
 
   get payoff(): number {
@@ -117,8 +126,6 @@ export class CurParticipantService {
 
   addProportion(proportion: number) {
     this._participant.proportion.push(proportion);
-    console.log("Function called");
-    console.log(this._participant.proportion);
   }
 
   setComplete() {

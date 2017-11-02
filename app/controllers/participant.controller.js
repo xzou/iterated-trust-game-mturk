@@ -24,11 +24,11 @@ exports.create = (req, res) => {
     })();
 
     var newParticipant = new Participant({
-        name: req.body.name,
         age: req.body.age,
         gender: req.body.gender,
+        isComplete: req.body.isComplete,
         mturkCode: mturkCode,
-        isComplete: req.body.isComplete
+        name: req.body.name
     });
 
     newParticipant.save((err, data) => {
@@ -63,13 +63,14 @@ exports.update = (req, res) => {
                 req.params.participantId});
         }
 
-        participant.payoff = req.body.payoff;
-        participant.opponentNumber = req.body.opponentNumber;
         participant.endowment = req.body.endowment;
-        participant.returned = req.body.returned;
-        participant.reactionTime = req.body.reactionTime;
-        participant.proportion = req.body.proportion;
         participant.isComplete = req.body.isComplete;
+        participant.isCorrect = req.body.isCorrect;
+        participant.opponentNumber = req.body.opponentNumber;
+        participant.payoff = req.body.payoff;
+        participant.proportion = req.body.proportion;
+        participant.reactionTime = req.body.reactionTime;
+        participant.returned = req.body.returned;
 
         participant.save((err, data) => {
             if (err) {
