@@ -84,9 +84,10 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
 
   setEndowment() {
     this.oppReturn = this.opponent.player.getReturn(this.endowment);
+    this.netGain = +((1 - this.endowment + this.oppReturn).toFixed(2));
     this.curParticipantService.addEndowment(this.endowment);
     this.curParticipantService.addReturn(this.oppReturn);
-    this.netGain = +((1 - this.endowment + this.oppReturn).toFixed(2));
+    this.curParticipantService.addNetGain(this.netGain);
     this.endowmentSubmitted = true;
   }
  

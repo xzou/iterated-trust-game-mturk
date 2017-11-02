@@ -9,6 +9,7 @@ export class Participant {
     public name?: string;
     public payoff?: number;
     public endowment?: number[];
+    public netGains?: number[];
     public opponentNumber?: number[];
     public proportion?: number[];
     public reactionTime?: number[];

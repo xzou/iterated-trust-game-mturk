@@ -9,10 +9,12 @@ import { CurParticipantService } from '../participant/cur-participant.service';
 })
 
 export class CodeComponent implements OnInit {
+  code: string;
 
-  constructor(private curParticipantService: CurParticipantService) { }
+  constructor(private curParticipantService: CurParticipantService) {
+    this.code = this.curParticipantService.code;
+  }
 
   ngOnInit() {
-    console.log(this.curParticipantService.code);
   }
 }

@@ -10,6 +10,7 @@ var ParticipantSchema = mongoose.Schema({
     name: String,
     payoff: Number,
     endowment: [Number],
+    netGains: [Number],
     opponentNumber: [Number],
     proportion: [Number],
     reactionTime: [Number],

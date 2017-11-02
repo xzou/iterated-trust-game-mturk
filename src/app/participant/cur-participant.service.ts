@@ -18,6 +18,7 @@ export class CurParticipantService {
     name: '',
     payoff: 0,
     endowment: [],
+    netGains: [],
     proportion: [],
     opponentNumber: [],
     reactionTime: [],
@@ -86,6 +87,14 @@ export class CurParticipantService {
 
   set payoff(amount: number) {
     this._participant.payoff = amount;
+  }
+
+  get netGains(): number[] {
+    return this._participant.netGains;
+  }
+
+  addNetGain(amount: number) {
+    this._participant.netGains.push(amount);
   }
 
   get opponents(): number[] {

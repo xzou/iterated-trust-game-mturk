@@ -66,6 +66,7 @@ exports.update = (req, res) => {
         participant.endowment = req.body.endowment;
         participant.isComplete = req.body.isComplete;
         participant.isCorrect = req.body.isCorrect;
+        participant.netGains = req.body.netGains;
         participant.opponentNumber = req.body.opponentNumber;
         participant.payoff = req.body.payoff;
         participant.proportion = req.body.proportion;
