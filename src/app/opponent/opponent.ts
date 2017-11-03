@@ -1,7 +1,7 @@
 export class Opponent {
 
   // Rate at which mean proportion drifts
-  readonly rate: number = .025; 
+  readonly rate: number = .05; 
 
   private _id: number;
   private _meanProp: number;

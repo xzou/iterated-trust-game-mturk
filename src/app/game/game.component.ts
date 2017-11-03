@@ -18,6 +18,7 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
   // "Constants" for use in the drift function
   readonly up = 1;
   readonly down = -1;
+  readonly totalRounds = 30;
 
   // Remove this later
   oppReturn: number; 
@@ -29,7 +30,7 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
   oppIds: number[];
   opponent: OpponentComponent; 
   oppSettings = [
-    { id: 1, meanProp: .1, name: 'Chris', directions: [this.up, this.up, this.up] },
+    { id: 1, meanProp: .1, name: 'Chris', directions: [this.up, this.up, this.down] },
     { id: 2, meanProp: .25, name: 'John', directions: [this.down, this.up, this.up] },
     { id: 3, meanProp: .5, name: 'Tom', directions: [this.down, this.down, this.up] }
   ]; 
@@ -74,7 +75,8 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
     this.opponent = this.oppArray[oppId];
     this.curParticipantService.addOpponent(oppId + 1);
 
-    if(this.inVolatilityPeriod()) {
+    if(this.inVolatilityPeriod(this.trialNumber)) {
+      console.log(this.trialNumber);
       let dirIdx = this.getDirectionsIdx(this.trialNumber); 
       let direction = this.opponent.directions[dirIdx];
       this.opponent.player.drift(direction);
@@ -107,19 +109,9 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
     return ids;
   }
 
-  getRoundNumber(trial: number): number {
-    while (trial - 60 > 0)
-      trial -= 60;
-    return trial;
-  }
-
-  inVolatilityPeriod(): boolean {
-    let round = this.getRoundNumber(this.trialNumber); 
-    return (
-      (round > 10 && round <= 20) ||
-      (round > 30 && round <= 40) ||
-      (round > 50 && round <= 60)
-    );
+  inVolatilityPeriod(trial: number): boolean {
+    let remainder = trial % 30;
+    return remainder === 0 || remainder > 15 && remainder < 30;
   }
 
   /**
@@ -129,7 +121,11 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
    * in directions[0].
    */
   getDirectionsIdx(trial: number) {
-    return Math.floor((trial - 10) / 10) / 2; 
+    let idx = Math.floor(trial / 30);
+    if (trial % 30 === 0) {
+      return idx - 1;
+    }
+    return idx;
   }
 }
 

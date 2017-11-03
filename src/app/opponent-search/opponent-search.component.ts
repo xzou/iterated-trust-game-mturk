@@ -9,7 +9,7 @@ import { NavButtonComponent } from '../nav-button/nav-button.component';
 
 export class OpponentSearchComponent implements OnInit {
   opponentFound: boolean = false;
-  players: string[] = ['Chris', 'John', 'Thomas'];
+  players: string[] = ['Chris', 'John', 'Tom'];
   
   constructor() { }
 
