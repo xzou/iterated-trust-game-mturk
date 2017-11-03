@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'game', component: GameComponent },
   { path: 'instructions', component: InstructionsComponent },
   { path: 'quiz', component: QuizComponent },
-  { path: 'opponent-search', component: OpponentSearchComponent },
+  { path: 'players-search', component: OpponentSearchComponent },
   { path: 'code', component: CodeComponent },
   { path: 'payoff', component: PayoffComponent }
 ];

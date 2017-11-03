@@ -1,0 +1,21 @@
+[
+    {
+        "id": 1,
+        "name": "Chris",
+        "meanProp": 0.1,
+        "directions": [1, 1, -1]
+    },
+    {
+        "id": 2,
+        "name": "John",
+        "meanProp": 0.25,
+        "directions": [-1, 1, 1]
+    },
+    {
+        "id": 3,
+        "name": "Tom",
+        "meanProp": 0.5,
+        "directions": [-1, -1, 1]
+    }
+]
+

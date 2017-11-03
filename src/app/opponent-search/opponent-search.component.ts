@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
+
 import { NavButtonComponent } from '../nav-button/nav-button.component';
+
 
 @Component({
   selector: 'app-opponent-search',
@@ -9,9 +12,14 @@ import { NavButtonComponent } from '../nav-button/nav-button.component';
 
 export class OpponentSearchComponent implements OnInit {
   opponentFound: boolean = false;
-  players: string[] = ['Chris', 'John', 'Tom'];
+  players: string[]; 
   
-  constructor() { }
+  constructor(private http: Http) {
+    this.http.get('/assets/players.json')
+        .subscribe(res => {
+          this.players = res.json().map(player => player.name);
+        });
+  }
 
   ngOnInit() {
     setTimeout(() => this.opponentFound = true, 8000);

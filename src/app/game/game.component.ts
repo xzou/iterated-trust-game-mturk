@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy, AfterViewInit, ViewChildren, QueryList } from '@angular/core';
+import { Http } from '@angular/http';
 
 import { OpponentComponent } from '../opponent/opponent.component';
 import { NavButtonComponent } from '../nav-button/nav-button.component';
@@ -29,16 +30,16 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
   netGain: number = 0;
   oppIds: number[];
   opponent: OpponentComponent; 
-  oppSettings = [
-    { id: 1, meanProp: .1, name: 'Chris', directions: [this.up, this.up, this.down] },
-    { id: 2, meanProp: .25, name: 'John', directions: [this.down, this.up, this.up] },
-    { id: 3, meanProp: .5, name: 'Tom', directions: [this.down, this.down, this.up] }
-  ]; 
+  oppSettings: {id: number, name: string, meanProp: number, directions: number[]}[];
   oppArray: OpponentComponent[]; 
   trialNumber: number = 1;
 
   constructor(private participantService: ParticipantService,
-              private curParticipantService: CurParticipantService) { }
+              private curParticipantService: CurParticipantService,
+              private http: Http) {
+    this.http.get('/assets/players.json')
+        .subscribe((res) => this.oppSettings = res.json());
+  }
 
   /* 
    * Angular lifecycle hooks
@@ -53,7 +54,9 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.oppArray = this.opponents.toArray();
+    this.opponents.changes.subscribe(() => {
+      this.oppArray = this.opponents.toArray();
+    });
   }
 
   /*
