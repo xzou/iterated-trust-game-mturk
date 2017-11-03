@@ -29,9 +29,9 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
   oppIds: number[];
   opponent: OpponentComponent; 
   oppSettings = [
-    { id: 1, meanProp: .25, name: 'Chris', directions: [this.up, this.up, this.up] },
-    { id: 2, meanProp: .5, name: 'John', directions: [this.down, this.up, this.up] },
-    { id: 3, meanProp: .75, name: 'Thomas', directions: [this.down, this.down, this.up] }
+    { id: 1, meanProp: .1, name: 'Chris', directions: [this.up, this.up, this.up] },
+    { id: 2, meanProp: .25, name: 'John', directions: [this.down, this.up, this.up] },
+    { id: 3, meanProp: .5, name: 'Tom', directions: [this.down, this.down, this.up] }
   ]; 
   oppArray: OpponentComponent[]; 
   trialNumber: number = 1;
