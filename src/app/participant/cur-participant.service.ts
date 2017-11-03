@@ -65,6 +65,10 @@ export class CurParticipantService {
     this._participant.ip = ip;
   }
 
+  set isComplete(state: boolean) {
+    this._participant.isComplete = state; 
+  }
+
   get isCorrect(): boolean {
     return this._participant.isCorrect;
   }
@@ -135,9 +139,5 @@ export class CurParticipantService {
 
   addProportion(proportion: number) {
     this._participant.proportion.push(proportion);
-  }
-
-  setComplete() {
-    this._participant.isComplete = true;
   }
 }
