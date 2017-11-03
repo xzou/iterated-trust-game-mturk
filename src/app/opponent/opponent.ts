@@ -60,7 +60,7 @@ export class Opponent {
 
   getReturn(endowment: number) {
     let proportion = this.rnorm(this.meanProp, .05); 
-    return +((proportion * (2 * endowment)).toFixed(2)); 
+    return +((proportion * (3 * endowment)).toFixed(2)); 
   }
 
   /**
