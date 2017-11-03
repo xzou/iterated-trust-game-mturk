@@ -1,36 +1,46 @@
 <div id="game"> 
+  <div *ngIf="!gameOver" id="game-panel">
     <h3>Round {{ trialNumber }}</h3>
     <div [hidden]="inTrial"id="opponents-panel"> 
-        <button (click)="selectOpponent()">Select Player</button>
-        <ul>
+      <ul>
         <li *ngFor="let opponent of oppSettings">
-            <tg-opponent [id]="opponent.id" [meanProp]="opponent.meanProp" [name]="opponent.name" [directions]="opponent.directions"></tg-opponent>
+          <tg-opponent [id]="opponent.id" [meanProp]="opponent.meanProp" [name]="opponent.name" [directions]="opponent.directions"></tg-opponent>
         </li>
-        </ul> 
+      </ul> 
+      <button (click)="selectOpponent()">Select Player</button>
     </div> <!-- #opponents-panel -->
 
     <div *ngIf="inTrial" id="trial-panel">
-        <h2>Current Opponent : {{ opponent.player.name }}</h2>
-        <div *ngIf="opponent">
-            Current player: {{ opponent.player.id }} ({{ opponent.player.name }}), meanProp: {{ opponent.player.meanProp }}
-        </div> 
+      <div id="opponent">
+        <h2>{{ opponent.player.name }}</h2>
+      </div>  <!-- #opponent -->
 
+      <div id="participant">
+        <h2>Your Name</h2>
+      </div> <!-- #participant -->
+
+      <div *ngIf="!endowmentSubmitted" id="interactive-panel">
+        <p>How much would you like to invest?</p>
         <form id="endowment" (ngSubmit)="setEndowment()">
-            <input type="range" name="endowmentSlider" [(ngModel)]="this.endowment" min="0.1" max="1" value=".5" step=".1"> 
-            <button type="submit" *ngIf="!endowmentSubmitted">Submit</button>
+          <input type="range" name="endowmentSlider" [(ngModel)]="this.endowment" min="0.1" max="1" value=".5" step=".1"> 
+          <button type="submit">Submit</button>
         </form>
-        <h4>Endowment: {{ endowment }}</h4>
-        <div *ngIf="endowmentSubmitted">
-            <h4>Return: {{ oppReturn }} </h4>
-            <p>You gave {{ opponent.player.name }} {{ endowment }}, and kept {{ (1 - endowment).toFixed(2) }} for yourself.</p>
-            <p>{{ opponent.player.name }} returned {{ oppReturn }}.</p>
-            <p>Your net gain on this trial is {{ netGain }}</p>
-        </div>
+      </div> <!-- #interactive-panel -->
 
-        <button *ngIf="endowmentSubmitted" (click)="nextTrial()">Next Round</button>
+      <div *ngIf="endowmentSubmitted" id="feedback">
+        <p>You invested {{ endowment }} in {{ opponent.player.name }}, and kept {{ (1 - endowment).toFixed(2) }} for yourself.</p>
+        <p>{{ opponent.player.name }} returned {{ oppReturn }} to you.</p>
+        <p>Your net gain on this trial is</p>
+        <h4>{{ (1 - endowment).toFixed(2) }} + {{ oppReturn }} = {{ netGain }}</h4>
+        <button (click)="nextTrial()">Next Round</button>
+      </div> <!-- #feedback -->
     </div> <!-- #trial-panel -->
-
-    <tg-nav-button url="payoff" label="Finish"></tg-nav-button>
+  </div> <!-- #game-panel -->
+  
+  <div *ngIf="gameOver" id="game-over-panel">
+    <h4>Congratulations! You have completed the game.</h4>
+    <tg-nav-button url="payoff" label="Proceed"></tg-nav-button>
+  </div> <!-- #game-over -->
 </div> <!-- #game -->
 
 

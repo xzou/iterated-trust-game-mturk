@@ -16,16 +16,15 @@ import { CurParticipantService } from '../participant/cur-participant.service';
 export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChildren(OpponentComponent) opponents: QueryList<OpponentComponent>
 
-  // "Constants" for use in the drift function
-  readonly up = 1;
-  readonly down = -1;
   readonly totalRounds = 30;
+  readonly totalTrials = 90;
 
   // Remove this later
   oppReturn: number; 
 
   endowment: number = 0.5;
   endowmentSubmitted: boolean = false;
+  gameOver: boolean = false;
   inTrial: boolean = false;
   netGain: number = 0;
   oppIds: number[];
@@ -50,7 +49,7 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnDestroy() {
     this.participantService.updateParticipant(this.curParticipantService.participant)
-                            .subscribe(() => console.log('Success'!));
+                            .subscribe();
   }
 
   ngAfterViewInit() {
@@ -66,39 +65,45 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
   nextTrial(): void {
     this.inTrial = false;
     this.endowmentSubmitted = false;
+    this.checkGameOver(); 
     this.trialNumber++;
   }
 
   selectOpponent(): void {
     this.inTrial = true;
-    if (this.trialNumber % 3 === 1) {
-      this.oppIds = this.createRoundOrder(); 
-    } 
-    let oppId = this.oppIds.shift(); 
+    let oppId = this.getOppId(); 
     this.opponent = this.oppArray[oppId];
+    this.checkDrift();
     this.curParticipantService.addOpponent(oppId + 1);
-
-    if(this.inVolatilityPeriod(this.trialNumber)) {
-      console.log(this.trialNumber);
-      let dirIdx = this.getDirectionsIdx(this.trialNumber); 
-      let direction = this.opponent.directions[dirIdx];
-      this.opponent.player.drift(direction);
-    }
     this.curParticipantService.addProportion(this.opponent.player.meanProp);
   }
 
   setEndowment() {
+    this.endowmentSubmitted = true;
     this.oppReturn = this.opponent.player.getReturn(this.endowment);
     this.netGain = +((1 - this.endowment + this.oppReturn).toFixed(2));
     this.curParticipantService.addEndowment(this.endowment);
     this.curParticipantService.addReturn(this.oppReturn);
     this.curParticipantService.addNetGain(this.netGain);
-    this.endowmentSubmitted = true;
   }
  
   /*
    * Helper functions
    */
+
+  checkDrift(): void {
+    if (this.inVolatilityPeriod()) {
+      let dirIdx = this.getDirectionsIdx(this.trialNumber);
+      let direction = this.opponent.directions[dirIdx];
+      this.opponent.player.drift(direction);
+    }
+  }
+
+  checkGameOver(): void {
+    if (this.trialNumber === this.totalTrials) {
+      this.gameOver = true;
+    }
+  }
 
   createRoundOrder(): number[] {
     let ids: number[] = [];
@@ -112,8 +117,15 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
     return ids;
   }
 
-  inVolatilityPeriod(trial: number): boolean {
-    let remainder = trial % 30;
+  getOppId(): number {
+    if (this.trialNumber % 3 === 1) {
+      this.oppIds = this.createRoundOrder();
+    }
+    return this.oppIds.shift();
+  }
+
+  inVolatilityPeriod(): boolean {
+    let remainder = this.trialNumber % this.totalRounds;
     return remainder === 0 || remainder > 15 && remainder < 30;
   }
 
@@ -124,8 +136,8 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
    * in directions[0].
    */
   getDirectionsIdx(trial: number) {
-    let idx = Math.floor(trial / 30);
-    if (trial % 30 === 0) {
+    let idx = Math.floor(trial / this.totalRounds);
+    if (trial % this.totalRounds === 0) {
       return idx - 1;
     }
     return idx;
