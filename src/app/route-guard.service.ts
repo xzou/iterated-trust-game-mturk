@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
-import { CanActivate } from '@angular/router';
+import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import 'rxjs/add/operator/switchMap';
+
+import { IpService } from './ip.service';
+import { ParticipantService } from './participant/participant.service';
 
 @Injectable()
 export class RouteGuardService implements CanActivate {
 
-  canActivate() {
-    console.log('RouteGuard#canActivate called');
-    return true;
+  constructor(private ipService: IpService,
+              private participantService: ParticipantService) { }
+
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    return this.ipService.isNewIp();
   }
-
-  constructor() { }
-
 }

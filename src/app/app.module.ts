@@ -20,6 +20,8 @@ import { CodeComponent } from './code/code.component';
 import { PayoffComponent } from './payoff/payoff.component';
 
 import { RouteGuardService } from './route-guard.service';
+import { ParticipantService } from './participant/participant.service';
+import { IpService } from './ip.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,11 @@ import { RouteGuardService } from './route-guard.service';
     JsonpModule,
     AppRouterModule,
   ],
-  providers: [RouteGuardService],
+  providers: [
+    IpService,
+    ParticipantService,
+    RouteGuardService
+  ],
   bootstrap: [AppComponent]
 })
 

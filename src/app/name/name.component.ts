@@ -10,13 +10,13 @@ import { Router } from '@angular/router';
 import { Participant } from '../participant/participant';
 import { ParticipantService } from '../participant/participant.service';
 import { CurParticipantService } from '../participant/cur-participant.service';
-import { NameService } from './name.service';
+import { IpService } from '../ip.service';
 
   @Component({
     selector: 'tg-name',
     templateUrl: './name.component.html',
     styleUrls: ['./name.component.css'],
-    providers: [ ParticipantService, NameService ]
+    providers: [ ParticipantService ]
   })
 
 export class NameComponent implements OnInit {
@@ -24,7 +24,7 @@ export class NameComponent implements OnInit {
   constructor(private router: Router,
               private participantService: ParticipantService,
               private curParticipantService: CurParticipantService,
-              private nameService: NameService) { }
+              private ipService: IpService) { }
 
   firstName: string = '';
   age: number;
@@ -34,9 +34,7 @@ export class NameComponent implements OnInit {
   isFilterIp: boolean = true;
 
   ngOnInit() {
-    this.nameService.getIp().then(res => {
-      console.log(res.ip);
-    });
+    this.ipService.getIp().subscribe(ip => this.ip = ip);
   }
 
   /* 
