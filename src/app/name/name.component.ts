@@ -10,42 +10,50 @@ import { Router } from '@angular/router';
 import { Participant } from '../participant/participant';
 import { ParticipantService } from '../participant/participant.service';
 import { CurParticipantService } from '../participant/cur-participant.service';
+import { NameService } from './name.service';
 
   @Component({
     selector: 'tg-name',
     templateUrl: './name.component.html',
     styleUrls: ['./name.component.css'],
-    providers: [ ParticipantService ]
+    providers: [ ParticipantService, NameService ]
   })
 
 export class NameComponent implements OnInit {
 
   constructor(private router: Router,
               private participantService: ParticipantService,
-              private curParticipantService: CurParticipantService) { }
-
-  ngOnInit() {
-  }
+              private curParticipantService: CurParticipantService,
+              private nameService: NameService) { }
 
   firstName: string = '';
   age: number;
   gender: string = '';
+  ip: string = '';
   isComplete: boolean = false;
+  isFilterIp: boolean = true;
+
+  ngOnInit() {
+    this.nameService.getIp().then(res => {
+      console.log(res.ip);
+    });
+  }
 
   /* 
    * Saves the new participant to the database, and updates the participant's
    * information in the CurParticipantService which is shared across all
    * components. 
    */
-  createParticipant() {
-    const newParticipant = new Participant(this.firstName, this.age, this.gender, this.isComplete);
+  createParticipant(): void {
+    const newParticipant = new Participant(this.firstName, this.age, this.gender, this.ip, this.isComplete);
     this.participantService.addParticipant(newParticipant)
         .subscribe(participant => {
-          this.curParticipantService.id = participant._id;
-          this.curParticipantService.name = participant.name;
           this.curParticipantService.age = participant.age;
-          this.curParticipantService.gender = participant.gender;
           this.curParticipantService.code = participant.mturkCode;
+          this.curParticipantService.gender = participant.gender;
+          this.curParticipantService.id = participant._id;
+          this.curParticipantService.ip = participant.ip;
+          this.curParticipantService.name = participant.name;
 
           this.router.navigateByUrl('/instructions', { replaceUrl: true });
         }); 

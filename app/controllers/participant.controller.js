@@ -26,6 +26,7 @@ exports.create = (req, res) => {
     var newParticipant = new Participant({
         age: req.body.age,
         gender: req.body.gender,
+        ip: req.body.ip,
         isComplete: req.body.isComplete,
         mturkCode: mturkCode,
         name: req.body.name
@@ -64,6 +65,7 @@ exports.update = (req, res) => {
         }
 
         participant.endowment = req.body.endowment;
+        participant.ip = req.body.ip;
         participant.isComplete = req.body.isComplete;
         participant.isCorrect = req.body.isCorrect;
         participant.netGains = req.body.netGains;
