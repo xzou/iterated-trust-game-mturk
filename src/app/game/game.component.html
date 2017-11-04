@@ -31,7 +31,7 @@
       <div *ngIf="endowmentSubmitted" id="feedback">
         <p>You invested {{ endowment }} in {{ opponent.player.name }}, and kept {{ (1 - endowment).toFixed(2) }} for yourself.</p>
         <p>{{ opponent.player.name }} returned {{ oppReturn }} to you.</p>
-        <p>Your net gain on this trial is</p>
+        <p>Your net gain during this round is</p>
         <h4>{{ (1 - endowment).toFixed(2) }} + {{ oppReturn }} = {{ netGain }}</h4>
         <button (click)="nextTrial()">Next Round</button>
       </div> <!-- #feedback -->
