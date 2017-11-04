@@ -8,9 +8,11 @@ import { OpponentSearchComponent } from './opponent-search/opponent-search.compo
 import { CodeComponent } from './code/code.component';
 import { PayoffComponent } from './payoff/payoff.component';
 
+import { RouteGuardService } from './route-guard.service';
+
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
-  { path: 'main', component: NameComponent },
+  { path: 'main', component: NameComponent, canActivate: [RouteGuardService] },
   { path: 'game', component: GameComponent },
   { path: 'instructions', component: InstructionsComponent },
   { path: 'quiz', component: QuizComponent },

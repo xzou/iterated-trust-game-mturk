@@ -19,6 +19,8 @@ import { OpponentSearchComponent } from './opponent-search/opponent-search.compo
 import { CodeComponent } from './code/code.component';
 import { PayoffComponent } from './payoff/payoff.component';
 
+import { RouteGuardService } from './route-guard.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +42,7 @@ import { PayoffComponent } from './payoff/payoff.component';
     JsonpModule,
     AppRouterModule,
   ],
-  providers: [],
+  providers: [RouteGuardService],
   bootstrap: [AppComponent]
 })
 
