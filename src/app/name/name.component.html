@@ -1,15 +1,24 @@
-<div>
-  <h3>Please enter the following information:</h3>
-  <form #f="ngForm" (ngSubmit)="createParticipant()" autocomplete="off">
-    <input type="text" name="participantName" [(ngModel)]="firstName" placeholder="First name"><br>
-    <input type="text" name="participantAge" [(ngModel)]="age" placeholder="Age"><br>
-    <div id="gender-select">
-      <input type="radio" id="choice-female" name="playerGender" [(ngModel)]="gender" value="female">
-      <label for="choice-female">Female</label>
-      <input type="radio" id="choice-male" name="playerGender" [(ngModel)]="gender" value="male">
-      <label for="choice-male">Male</label>
-    </div> <!-- #gender-select -->
-    <button type="submit">Submit</button>
-  </form>
-</div>
+<div id="name">
+  <div id="name-info">
+    <h1>Hello!</h1>
+    <p>Please fill out the following:</p>
+    <form #f="ngForm" (ngSubmit)="createParticipant()" autocomplete="off">
+      <input type="text" name="participantName" [(ngModel)]="firstName" placeholder="First name"><br>
+      <input type="text" name="participantAge" [(ngModel)]="age" placeholder="Age"><br>
+      <ul id="gender-select">
+        <li>
+          <input type="radio" id="choice-female" name="playerGender" [(ngModel)]="gender" value="female">
+          <label for="choice-female">Female</label>
+        </li>
+        <li>
+          <input type="radio" id="choice-male" name="playerGender" [(ngModel)]="gender" value="male">
+          <label for="choice-male">Male</label>
+        </li>
+      </ul> <!-- #gender-select -->
+      <div id="button">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div> <!-- #name-info -->
+</div> <!-- #name -->
 

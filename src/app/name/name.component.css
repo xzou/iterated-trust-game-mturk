@@ -1,0 +1,95 @@
+#name {
+  width: 430px;
+  height: 550px;
+  background-color: white;
+  margin: auto;
+  margin-top: 6%; 
+  border-radius: 60px;
+  box-shadow: -1px 4px 25px 1px rgba(0,0,0,0.75);
+  -webkit-box-shadow: -1px 4px 25px 1px rgba(0,0,0,0.75);
+  -moz-box-shadow: -1px 4px 25px 1px rgba(0,0,0,0.75);
+}
+
+#name-info {
+  width: 350px;
+  height: auto;
+  margin: auto;
+  padding-top: 8%;
+  text-align: center;
+}
+
+h1 {
+  border-bottom: 1px solid #444;
+}
+
+p {
+  padding: none;
+  margin: 0 0 15px 0;
+}
+
+input {
+  margin-bottom: 15px;
+}
+
+input[type=text] {
+  width: 220px;
+  height: 45px;
+  text-align: center;
+  box-sizing: border-box;
+  color: #222;
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+}
+
+input[type=text]:focus {
+  outline: none !important;
+  border: 1px solid #FB907E;
+  box-shadow: 0 0 3px #ccc;
+}
+
+input[type=radio] {
+  display: none;
+}
+
+#gender-select {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 55px 65px;
+}
+
+#gender-select li {
+  float: left;
+  margin: 0 10px 0 0;
+  width: 105px;
+  height: 45px;
+  position: relative;
+}
+
+#gender-select label {
+  display: inline-block;
+  position: absolute;
+  background-color: #ccc;
+  padding-top: 12px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  font-family: 'Raleway';
+  color: #444;
+}
+
+#gender-select label:hover {
+  background: #999;
+  color: white;
+  cursor: crosshair;
+}
+
+#gender-select input[type=radio]:checked + label {
+  background: #FB907E;
+  color: white;
+}
+
+#button {
+  clear: both;
+  padding-top: 40px;
+}
