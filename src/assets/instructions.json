@@ -1,7 +1,7 @@
 [
   { 
     "page": 1, 
-    "text": "<h4>Welcome!</h4><p>Today you'll be playing a game that involves making a series of decisions with other players online.</p><p>Your goal in the game is to collect as many points as possible, as the number of points you collect will determine how much money you will receive in bonus payment at the end of the game.",
+    "text": "<h2>Welcome!</h2><p>Today you'll be playing a game that involves making a series of decisions with other players online.</p><p>Your goal in the game is to collect as many points as possible, as the number of points you collect will determine how much money you will receive in bonus payment at the end of the game.<p><strong>Note:</strong> Please use only the navigation buttons provided to you, and do not use your browser navigation buttons or refresh the page. Using the browser \"Back\" or \"Forward\" buttons or refreshing the page will result in the termination of the experiment. Thank you for your cooperation!</p>",
     "img": ""
   },
   {
@@ -36,7 +36,7 @@
   },
   {
     "page": 8,
-    "text": "</p>For example, if you decide to invest $0.60, you will give $0.60 and you will keep $0.40 on that round. The $0.60 you decide to invest will be tripled to $1.80.</p>",
+    "text": "<p>For example, if you decide to invest $0.60, you will give $0.60 and you will keep $0.40 on that round. The $0.60 you decide to invest will be tripled to $1.80.</p>",
     "img": "/assets/images/image8.jpg"
   },
   {

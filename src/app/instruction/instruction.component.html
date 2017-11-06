@@ -1,7 +1,20 @@
-<div>
-  <span [innerHTML]="text"></span>
-  <div><img [src]="imgSrc"></div>
-  <button *ngIf="page > 1" (click)="setPage(page - 1)">Back</button>
-  <button *ngIf="page < maxPage" (click)="setPage(page + 1)">Next</button> 
-</div>
+<div id="instruction">
+  <div *ngIf="page === 1" id="welcome-text" class="card">
+    <div [innerHTML]="text"></div>
+    <button (click)="setPage(page + 1)">Next</button>
+  </div> <!-- #welcome-text -->
+
+  <div *ngIf="page > 1" id="instruction-text" class="card">
+    <h2>Instructions</h2>
+    <div [innerHTML]="text"></div>
+    <div id="instruction-buttons">
+      <button (click)="setPage(page - 1)">Back</button>
+      <button *ngIf="page < maxPage" (click)="setPage(page + 1)">Next</button> 
+    </div> <!-- #instructions-buttons -->
+    <tg-nav-button *ngIf="page === maxPage" url="quiz" label="Go to Quiz"></tg-nav-button>
+  </div> <!-- #instruction-text -->
+
+  <div *ngIf="page > 1" id="instruction-image" class="card"><img [src]="imgSrc"></div>
+
+</div> <!-- #instruction -->
 
