@@ -6,10 +6,20 @@
     <span id="question" [innerHTML]="content.question"></span>
 
     <form (ngSubmit)="checkAnswer()">
-      <input type="radio" name="quizAnswer" id="option1" [(ngModel)]="answer" value=1>
-        <label for="option1"><span [innerHTML]="content.choiceA"></span></label>
-      <input type="radio" name="quizAnswer" id="option2" [(ngModel)]="answer" value=2>
-        <label for="option2"><span [innerHTML]="content.choiceB"></span></label>
+      <ul>
+        <li>
+          <label for="option1">
+            <input type="radio" name="quizAnswer" id="option1" [(ngModel)]="answer" value=1>
+            <span [innerHTML]="content.choiceA"></span>
+          </label>
+        </li>
+        <li>
+          <label for="option2">
+            <input type="radio" name="quizAnswer" id="option2" [(ngModel)]="answer" value=2>
+            <span [innerHTML]="content.choiceB"></span>
+          </label>
+        </li>
+      </ul>
       <button type="submit" [disabled]="answer === ''">Submit</button>
     </form>
   </div> <!-- #question-panel -->

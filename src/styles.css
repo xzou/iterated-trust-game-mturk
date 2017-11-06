@@ -10,12 +10,9 @@ html {
   background-color: #FB907E;
 }
 
-h1, h2, h3 {
+h1, h2 {
   font-family: 'Corben', sans-serif;
   color: #555;
-}
-
-h1, h2 {
   font-weight: 900;
   text-shadow: 2px 0 #555;
   letter-spacing: 1px;
@@ -38,6 +35,11 @@ h2 {
   font-size: 45px;
   text-align: center;
   border-bottom: 1px solid #aaa;
+}
+
+h3 {
+  font-family: 'Raleway';
+  font-size: 28px;
 }
 
 button {
