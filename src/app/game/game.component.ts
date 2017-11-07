@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, ElementRef, ViewChildren, QueryList } from '@angular/core';
 import { Http } from '@angular/http';
 
 import { OpponentComponent } from '../opponent/opponent.component';
@@ -29,12 +29,19 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
   netGain: number = 0;
   oppIds: number[];
   opponent: OpponentComponent; 
-  oppSettings: {id: number, name: string, meanProp: number, directions: number[]}[];
+  oppSettings: {
+    id: number,
+    name: string,
+    meanProp: number,
+    directions: number[],
+    img: string;
+  }[];
   oppArray: OpponentComponent[]; 
   trialNumber: number = 1;
 
   constructor(private participantService: ParticipantService,
               private curParticipantService: CurParticipantService,
+              private elementRef: ElementRef,
               private http: Http) {
     this.http.get('/assets/players.json')
         .subscribe((res) => this.oppSettings = res.json());
@@ -56,6 +63,7 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
     this.opponents.changes.subscribe(() => {
       this.oppArray = this.opponents.toArray();
     });
+    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#FDFBEB';
   }
 
   /*

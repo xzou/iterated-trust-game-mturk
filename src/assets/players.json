@@ -3,19 +3,22 @@
         "id": 1,
         "name": "Chris",
         "meanProp": 0.1,
-        "directions": [1, 1, -1]
+        "directions": [1, 1, -1], 
+        "img": "/assets/images/player_blue.png"
     },
     {
         "id": 2,
         "name": "John",
         "meanProp": 0.25,
-        "directions": [-1, 1, 1]
+        "directions": [-1, 1, 1],
+        "img": "/assets/images/player_yellow.png"
     },
     {
         "id": 3,
         "name": "Tom",
         "meanProp": 0.5,
-        "directions": [-1, -1, 1]
+        "directions": [-1, -1, 1],
+        "img": "/assets/images/player_orange.png"
     }
 ]
 

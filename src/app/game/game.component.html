@@ -1,13 +1,15 @@
 <div id="game"> 
   <div *ngIf="!gameOver" id="game-panel">
-    <h3>Round {{ trialNumber }}</h3>
+    <div id="round-num"><h4>Round {{ trialNumber }}</h4></div>
     <div [hidden]="inTrial"id="opponents-panel"> 
+      <div id="opponents">
       <ul>
         <li *ngFor="let opponent of oppSettings">
-          <tg-opponent [id]="opponent.id" [meanProp]="opponent.meanProp" [name]="opponent.name" [directions]="opponent.directions"></tg-opponent>
+          <tg-opponent [id]="opponent.id" [meanProp]="opponent.meanProp" [name]="opponent.name" [directions]="opponent.directions" [img]="opponent.img"></tg-opponent>
         </li>
       </ul> 
-      <button (click)="selectOpponent()">Select Player</button>
+      </div>
+      <div id="opponent-button"><button (click)="selectOpponent()">Select Player</button></div>
     </div> <!-- #opponents-panel -->
 
     <div *ngIf="inTrial" id="trial-panel">
