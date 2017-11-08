@@ -22,6 +22,6 @@ export class OpponentSearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    setTimeout(() => this.opponentFound = true, 100);
+    setTimeout(() => this.opponentFound = true, 8000);
   }
 }
