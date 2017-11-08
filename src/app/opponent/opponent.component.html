@@ -1,7 +1,7 @@
-<div id="player" class="card">
-  <div id="player-info">
-    <div id="player-img"><img [src]="img"></div>
-    <div id="player-name" [ngStyle]="{'background-color': player.id === 1 ? '#00EAF5' : player.id === 2 ? '#FFC900' : '#FF8411'}">{{ player.name }}</div>
+<div class="card player">
+  <div class="player-info">
+    <div><img [src]="img"></div>
+    <div class="player-name" [ngStyle]="{'background-color': player.id === 1 ? '#00EAF5' : player.id === 2 ? '#FFC900' : '#FF8411'}">{{ player.name }}</div>
   </div> <!-- #player-info -->
 </div> <!-- #player -->
 

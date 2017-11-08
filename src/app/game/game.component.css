@@ -49,6 +49,58 @@ h4 {
   padding-top: 70px;
 }
 
+#trial-panel {
+  width: 1190px;
+  margin: 5% auto 0 auto;
+  padding-left: 4%;
+}
+
+#participant, #interactive-panel, #feedback, #opponent {
+  float: left;
+  margin-right: 60px;
+}
+
+#interactive-panel, #feedback {
+  width: 450px;
+  height: 380px;
+}
+
+#participant .player-name {
+  background-color: #8200C7;
+}
+
+#interactive-panel, #feedback {
+  box-sizing: border-box;
+  padding: 3% 4% 0 4%;
+}
+
+#interactive-panel p {
+  font-size: 20px;
+}
+
+#endowment-amount {
+  font-family: 'Raleway';
+  font-size: 50px;
+  text-align: center;
+  margin-bottom: 70px;
+  color: #444;
+}
+
+input[type=range] {
+  width: 325px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#interactive-panel button,
+#feedback button {
+  float: right;
+}
+
+#feedback h4 {
+  padding: 10px 0 20px 0;
+}
+
 #round-num {
   margin: -60px auto 10px auto;
   width: 300px;
@@ -59,8 +111,8 @@ h4 {
   box-shadow: -1px 4px 25px 1px rgba(0,0,0,0.75);
   -webkit-box-shadow: -1px 4px 25px 1px rgba(0,0,0,0.75);
   -moz-box-shadow: -1px 4px 25px 1px rgba(0,0,0,0.75);
-
 }
+
 
 
 

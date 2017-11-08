@@ -37,6 +37,7 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
     img: string;
   }[];
   oppArray: OpponentComponent[]; 
+  playerImgPath: string = '/assets/images/player_purple.png';
   trialNumber: number = 1;
 
   constructor(private participantService: ParticipantService,
