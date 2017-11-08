@@ -10,11 +10,19 @@ body {
   background-color: #FB907E;
 }
 
+.type1-text {
+  font-family: 'Raleway', sans-serif;
+}
+
+.type2-text {
+  font-family: 'Corben', sans-serif;
+}
+
 h1, h2 {
   font-family: 'Corben', sans-serif;
-  color: #555;
+  color: #444;
   font-weight: 900;
-  text-shadow: 2px 0 #555;
+  text-shadow: 2px 0 #444;
   letter-spacing: 1px;
   margin: 0 0 15px 0;
 }
@@ -43,6 +51,7 @@ h3, h4 {
 
 h3 {
   font-size: 28px;
+  color: #222;
 }
 
 h4 {

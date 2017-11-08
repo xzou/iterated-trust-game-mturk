@@ -15,18 +15,28 @@ ul>li {
 }
 
 label {
-  font-family: 'Raleway', sans-serif;
   font-size: 18px;
   font-weight: 100;
+  line-height: 140%;
 }
 
 label span {
   display: block;
   margin-left: 25px;
-  margin-top: -20px;
+  margin-top: -23px;
 }
 
 button {
   float: right;
   margin-top: 80px;
+}
+
+#feedback {
+  width: 400px;
+  margin: auto;
+  padding-top: 18%;
+}
+
+tg-nav-button {
+  float: right;
 }
