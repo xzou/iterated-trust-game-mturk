@@ -1,11 +1,13 @@
-<div id="opponent-search">
+<div id="opponent-search" class="card">
   <div *ngIf="!opponentFound" id="finding-opponent">
     <p>Matching with players...</p>
   </div>
 
-  <div *ngIf="opponentFound" id="opponent-found">
+  <div *ngIf="opponentFound" id="opponent-found" class="type1-text">
     <p>Players found! You will be playing with:</p>
     <div *ngFor="let player of players">{{ player }}</div>
-    <tg-nav-button url="game" label="Proceed"></tg-nav-button>
+    <div id="nav-button">
+      <tg-nav-button url="game" label="Proceed"></tg-nav-button>
+    </div>
   </div>
 </div> <!-- #opponent-search -->
