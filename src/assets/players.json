@@ -4,7 +4,7 @@
         "name": "Chris",
         "meanProp": 0.1,
         "directions": [1, 1, -1], 
-        "img": "/assets/images/player_blue.png"
+        "img": "/assets/images/player_green.png"
     },
     {
         "id": 2,

@@ -16,8 +16,8 @@ import { CurParticipantService } from '../participant/cur-participant.service';
 export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChildren(OpponentComponent) opponents: QueryList<OpponentComponent>
 
-  readonly totalRounds = 30;
-  readonly totalTrials = 90;
+  readonly totalRounds = 1;
+  readonly totalTrials = 3;
 
   // Remove this later
   oppReturn: number; 
