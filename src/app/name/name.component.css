@@ -80,7 +80,7 @@ input[type=radio] {
 }
 
 #gender-select input[type=radio]:checked + label {
-  background: #FB907E;
+  background: #3bd4f2;
   color: white;
 }
 
