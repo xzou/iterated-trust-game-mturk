@@ -1,10 +1,13 @@
 import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
 
+import { CurParticipantService } from '../participant/cur-participant.service';
+
 @Component({
   selector: 'tg-instruction',
   templateUrl: './instruction.component.html',
   styleUrls: ['./instruction.component.css']
 })
+
 export class InstructionComponent implements OnInit {
   @Input() page: number;
   @Input() text: string;
@@ -13,7 +16,7 @@ export class InstructionComponent implements OnInit {
 
   @Output() pageChange = new EventEmitter<number>();
 
-  constructor() { }
+  constructor(private curParticipantService: CurParticipantService) { }
 
   ngOnInit() {
   }
