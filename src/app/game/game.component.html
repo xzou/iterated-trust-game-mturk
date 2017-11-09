@@ -51,8 +51,9 @@
     </div> <!-- #trial-panel -->
   </div> <!-- #game-panel -->
   
-  <div *ngIf="gameOver" id="game-over-panel">
-    <h4>Congratulations! You have completed the game.</h4>
+  <div *ngIf="gameOver" id="game-over-panel" class="card">
+    <p>Congratulations!</p> 
+    <p>You have completed the game.</p>
     <tg-nav-button url="payoff" label="Proceed"></tg-nav-button>
   </div> <!-- #game-over -->
 </div> <!-- #game -->

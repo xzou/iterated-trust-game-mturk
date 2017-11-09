@@ -149,7 +149,17 @@ input[type=range]::-moz-range-thumb {
   box-shadow: -1px 3px 30px -4px rgba(68,68,68,1);
 }
 
+#game-over-panel {
+  width: 480px;
+  height: 300px;
+  margin: 10% auto 0 auto;
+  padding: 5% 5% 0 5%;
+  box-sizing: border-box;
+}
 
-
+tg-nav-button {
+  float: right;
+  margin-top: 40px;
+}
 
 

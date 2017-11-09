@@ -24,7 +24,7 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
 
   endowment: number = 0.5;
   endowmentSubmitted: boolean = false;
-  gameOver: boolean = false;
+  gameOver: boolean = true;
   inTrial: boolean = false;
   netGain: number = 0;
   oppIds: number[];

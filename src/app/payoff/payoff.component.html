@@ -1,4 +1,4 @@
-<div id="payoff">
+<div id="payoff" class="card">
   <h2>Payoff</h2>
   <p>As mentioned in the instructions, your final payoff is determined by taking the sum 
   of your net gains from two random rounds. Those rounds are <strong>Round {{ idx1 + 1 }}</strong>
@@ -6,6 +6,8 @@
   <p>The final calculation for your payoff is as follows:</p>
   <p>Round {{ idx1 + 1 }}: Net gain = {{ netGains[idx1] }}</p>
   <p>Round {{ idx2 + 1 }}: Net gain = {{ netGains[idx2] }}</p>
-  <p>Payoff = {{ netGains[idx1] }} + {{ netGains[idx2] }} = {{ payoff }}.</p>
-  <tg-nav-button url="code" label="Proceed"></tg-nav-button>
+  <h3>Payoff = {{ netGains[idx1] }} + {{ netGains[idx2] }} = {{ payoff }}.</h3>
+  <div id="nav-button">
+    <tg-nav-button url="code" label="Proceed"></tg-nav-button>
+  </div>
 </div>

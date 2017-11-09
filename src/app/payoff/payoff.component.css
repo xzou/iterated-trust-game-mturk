@@ -1,0 +1,16 @@
+#payoff {
+  width: 700px;
+  height: 600px;
+  margin: 4% auto 0 auto;
+  padding: 4% 5% 0 5%;
+  box-sizing: border-box;
+}
+
+#nav-button {
+  width: 120px;
+  margin: auto;
+}
+
+h3 {
+  text-align: center;
+}

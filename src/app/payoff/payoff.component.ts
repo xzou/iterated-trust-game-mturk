@@ -27,7 +27,7 @@ export class PayoffComponent implements OnDestroy {
 
     this.payoff = +((this.netGains[this.idx1] + this.netGains[this.idx2]).toFixed(2));
     this.curParticipantService.payoff = this.payoff;
-    this.curParticipantService.isComplete = true;
+    this.curParticipantService.isComplete = true; 
   }
 
   ngOnDestroy() {
