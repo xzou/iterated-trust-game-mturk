@@ -139,7 +139,7 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
       return false;
     }
     let remainder = this.trialNumber % 24;
-    return remainder === 0 || remainder > 12 && remainder < 24;
+    return this.trialNumber < 84 && (remainder === 0 || remainder > 12 && remainder < 24);
   }
 
   /**
