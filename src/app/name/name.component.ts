@@ -27,8 +27,9 @@ export class NameComponent implements OnInit {
               private ipService: IpService) { }
 
   firstName: string = '';
-  age: number;
+  age: string = '';
   gender: string = '';
+  genders: string[] = ['female', 'male'];
   ip: string = '';
   isComplete: boolean = false;
   isFilterIp: boolean = true;
@@ -43,7 +44,7 @@ export class NameComponent implements OnInit {
    * components. 
    */
   createParticipant(): void {
-    const newParticipant = new Participant(this.firstName, this.age, this.gender, this.ip, this.isComplete);
+    const newParticipant = new Participant(this.firstName, parseInt(this.age), this.gender, this.ip, this.isComplete);
     this.participantService.addParticipant(newParticipant)
         .subscribe(participant => {
           this.curParticipantService.age = participant.age;
@@ -56,4 +57,8 @@ export class NameComponent implements OnInit {
           this.router.navigateByUrl('/instructions', { replaceUrl: true });
         }); 
   } 
+
+  isValid(): boolean {
+    return this.firstName !== '' && this.age !== '' && this.gender !== '';
+  }
 }

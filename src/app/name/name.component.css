@@ -1,39 +1,24 @@
-#name {
+/* GENERAL */
+.card {
   width: 430px;
-  height: 550px;
+  height: 580px;
   margin: auto;
-  margin-top: 6%; 
-}
-
-#name-info {
-  width: 350px;
-  height: auto;
-  margin: auto;
-  padding-top: 8%;
+  margin-top: 5%; 
   text-align: center;
+  padding: 2% 5% 0 5%;
 }
 
-h1 {
-  border-bottom: 1px solid #aaa;
-}
-
-p {
-  padding: none;
-  margin: 0 0 15px 0;
-}
-
-input {
-  margin-bottom: 15px;
-}
-
+/* TEXT INPUT */
 input[type=text] {
+  box-sizing: border-box;
+  margin: 0 auto 30px auto;
+  display: block;
   width: 220px;
   height: 45px;
   text-align: center;
-  box-sizing: border-box;
-  color: #222;
-  font-family: 'Raleway', sans-serif;
-  font-size: 18px;
+  clear: left;
+  font-size: 20px;
+  font-weight: 200;
 }
 
 input[type=text]:focus {
@@ -42,49 +27,90 @@ input[type=text]:focus {
   box-shadow: 0 0 3px #ccc;
 }
 
+/* TEXT INPUT LABELS */ 
+.form-text {
+  width: 220px;
+  margin: auto;
+}
+
+.text-label {
+  height: 0;
+  border-bottom: 28px solid #444;
+  border-right: 25px solid transparent;
+  text-align: left;
+  font-size: 15px;
+}
+
+#name-label {
+  width: 120px;
+}
+
+#age-label {
+  width: 60px;
+}
+
+.form-text label {
+  color: white;
+  display: block;
+  padding: 4px 0 0 10px;
+}
+
+/* RADIO INPUT + LABELS */
 input[type=radio] {
   display: none;
 }
 
-#gender-select {
+ul {
   list-style-type: none;
-  padding: 0;
-  margin: 0 0 55px 65px;
+  width: 220px;
+  margin: auto;
+  padding-left: 0;
 }
 
-#gender-select li {
+ul li {
   float: left;
-  margin: 0 10px 0 0;
   width: 105px;
   height: 45px;
   position: relative;
+  margin-right: 10px;
+  padding-left: 0;
+  background: #bbb;
 }
 
-#gender-select label {
+ul li:last-child {
+  margin-right: 0;
+}
+
+li label {
   display: inline-block;
   position: absolute;
-  background-color: #ccc;
-  padding-top: 12px;
   top: 0;
-  left: 0;
-  bottom: 0;
   right: 0;
-  font-family: 'Raleway';
-  color: #444;
+  bottom: 0;
+  left: 0;
+  padding-top: 12px;
 }
 
-#gender-select label:hover {
-  background: #999;
-  color: white;
-  cursor: crosshair;
-}
-
-#gender-select input[type=radio]:checked + label {
-  background: #3bd4f2;
+li label:hover {
+  background: #777;
   color: white;
 }
 
-#button {
+li input[type=radio]:checked + label {
+  background: #444;
+  color: white;
+}
+
+/* SUBMIT BUTTON */
+button {
   clear: both;
-  padding-top: 40px;
+  margin-top: 40px;
+}
+
+/* VALIDATION MESSAGES */
+.warning {
+  color: #f18c8b;
+  text-align: left;
+  margin: -25px 0 9px 0;
+  font-size: 14px;
 }

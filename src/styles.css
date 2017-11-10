@@ -12,10 +12,12 @@ body {
 
 .type1-text {
   font-family: 'Raleway', sans-serif;
+  color: #444;
 }
 
 .type2-text {
   font-family: 'Corben', sans-serif;
+  color: #444;
 }
 
 h1, h2 {
@@ -24,6 +26,7 @@ h1, h2 {
   font-weight: 900;
   text-shadow: 2px 0 #444;
   letter-spacing: 1px;
+  border-bottom: 1px solid #aaa;
   margin: 0 0 15px 0;
 }
 
@@ -42,7 +45,6 @@ h1 {
 h2 {
   font-size: 45px;
   text-align: center;
-  border-bottom: 1px solid #aaa;
   line-height: 110%;
   padding-bottom: 15px;
 }
@@ -72,14 +74,22 @@ button {
   font-family: 'Raleway';
 }
 
-button:hover {
-  background-color: #444;
+button:hover:enabled,
+label:hover {
   cursor: crosshair;
+}
+
+button:disabled,
+button[disabled] {
+  border: 1px solid #aaa;
+  color: #888;
+  background: white;
 }
 
 .card {
   background-color: white;
   border-radius: 60px;
+  box-sizing: border-box;
   -webkit-box-shadow: -1px 3px 30px -4px rgba(68,68,68,1);
   -moz-box-shadow: -1px 3px 30px -4px rgba(68,68,68,1);
   box-shadow: -1px 3px 30px -4px rgba(68,68,68,1);
