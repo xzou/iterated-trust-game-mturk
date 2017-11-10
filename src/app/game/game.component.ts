@@ -16,8 +16,7 @@ import { CurParticipantService } from '../participant/cur-participant.service';
 export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChildren(OpponentComponent) opponents: QueryList<OpponentComponent>
 
-  readonly totalRounds = 1;
-  readonly totalTrials = 3;
+  readonly totalTrials = 96;
 
   // Remove this later
   oppReturn: number; 
@@ -134,8 +133,13 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   inVolatilityPeriod(): boolean {
-    let remainder = this.trialNumber % this.totalRounds;
-    return remainder === 0 || remainder > 15 && remainder < 30;
+    if (this.trialNumber > 72 && this.trialNumber <= 84) {
+      if (this.opponent.player.id === 2) 
+        return true;
+      return false;
+    }
+    let remainder = this.trialNumber % 24;
+    return remainder === 0 || remainder > 12 && remainder < 24;
   }
 
   /**
@@ -145,8 +149,8 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
    * in directions[0].
    */
   getDirectionsIdx(trial: number) {
-    let idx = Math.floor(trial / this.totalRounds);
-    if (trial % this.totalRounds === 0) {
+    let idx = Math.floor(trial / 24);
+    if (trial % 24 === 0) {
       return idx - 1;
     }
     return idx;

@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "Chris",
-        "meanProp": 0.1,
+        "meanProp": 0.05,
         "directions": [1, 1, -1], 
         "img": "/assets/images/player_green.png"
     },
@@ -10,13 +10,13 @@
         "id": 2,
         "name": "John",
         "meanProp": 0.25,
-        "directions": [-1, 1, 1],
+        "directions": [-1, 1, 1, -1],
         "img": "/assets/images/player_yellow.png"
     },
     {
         "id": 3,
         "name": "Tom",
-        "meanProp": 0.5,
+        "meanProp": 0.45,
         "directions": [-1, -1, 1],
         "img": "/assets/images/player_orange.png"
     }
