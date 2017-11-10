@@ -63,6 +63,7 @@ h4 {
 #interactive-panel, #feedback {
   width: 450px;
   height: 380px;
+  position: relative;
 }
 
 #participant .player-name {
@@ -130,7 +131,9 @@ input[type=range]::-moz-range-thumb {
 
 #interactive-panel button,
 #feedback button {
-  float: right;
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
 }
 
 #feedback h4 {
