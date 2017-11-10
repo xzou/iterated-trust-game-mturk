@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
+import { CurrencyPipe } from '@angular/common';
 import 'rxjs/Rx';
 
 import { AppComponent } from './app.component';
@@ -22,6 +23,7 @@ import { PayoffComponent } from './payoff/payoff.component';
 import { RouteGuardService } from './route-guard.service';
 import { ParticipantService } from './participant/participant.service';
 import { IpService } from './ip.service';
+import { CapitalizePipe } from './capitalize.pipe';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { IpService } from './ip.service';
     QuizComponent,
     OpponentSearchComponent,
     CodeComponent,
-    PayoffComponent
+    PayoffComponent,
+    CapitalizePipe
   ],
   imports: [
     BrowserModule,

@@ -16,7 +16,7 @@
       <div id="participant" class="card player">
         <div class="player-info">
           <img [src]="playerImgPath">
-          <div class="player-name">{{ curParticipantService.name }}</div>
+          <div class="player-name">{{ curParticipantService.name | capitalize}}</div>
         </div>
       </div> <!-- #participant -->
 
@@ -25,17 +25,17 @@
           <p>How much would you like to invest?</p>
           <form id="endowment" (ngSubmit)="setEndowment()">
             <input type="range" name="endowmentSlider" [(ngModel)]="this.endowment" min="0.1" max="1" value=".5" step=".1"> 
-            <div id="endowment-amount">{{ endowment }}</div>
+            <div id="endowment-amount">{{ endowment | currency : 'USD' : true : '1.2-2' }}</div>
             <button type="submit">Submit</button>
           </form>
         </div>
       </div> <!-- #interactive-panel -->
 
       <div *ngIf="endowmentSubmitted" id="feedback" class="card">
-        <p>You invested {{ endowment }} in {{ opponent.player.name }}, and kept {{ (1 - endowment).toFixed(2) }} for yourself.</p>
-        <p>{{ opponent.player.name }} returned {{ oppReturn }} to you.</p>
+        <p>You invested {{ endowment | currency:'USD':true:'1.2-2' }}, and kept {{ (1 - endowment).toFixed(2) | currency:'USD':true:'1.2-2' }} for yourself.</p>
+        <p>{{ opponent.player.name }} returned {{ oppReturn | currency:'USD':true:'1.2-2' }} to you.</p>
         <p>Your net gain during this round is</p>
-        <h4>{{ (1 - endowment).toFixed(2) }} + {{ oppReturn }} = {{ netGain }}</h4>
+        <h4>{{ (1 - endowment).toFixed(2) | currency:'USD':true:'1.2-2' }} + {{ oppReturn | currency:'USD':true:'1.2-2' }} = {{ netGain | currency:'USD':true:'1.2-2' }}</h4>
         <button (click)="nextTrial()">Next Round</button>
       </div> <!-- #feedback -->
 

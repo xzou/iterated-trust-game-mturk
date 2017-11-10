@@ -19,7 +19,7 @@
     <ul>
       <li *ngFor="let option of genders">
         <input type="radio" [id]="option" name="playerGender" [(ngModel)]="gender" [value]="option">
-        <label for="{{option}}">{{ option }}</label>
+        <label for="{{option}}">{{ option | capitalize }}</label>
       </li>
     </ul>
       <button type="submit" [disabled]="!isValid()">Submit</button>
