@@ -15,9 +15,8 @@ import { ParticipantService } from '../participant/participant.service';
 
 export class QuizComponent implements OnInit {
   answer: string = ''; 
-  answerSubmitted: boolean = false;
+  answerSubmitted: boolean;
   isChoiceA: boolean;
-  isFindOpponents: boolean = false;
   content = {};
 
   constructor(private router: Router,

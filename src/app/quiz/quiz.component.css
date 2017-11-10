@@ -1,12 +1,8 @@
-#quiz {
-  width: 100%;
-}
-
 #question-panel {
-  width: 580px;
-  height: 555px;
+  width: 800px;
+  height: 570px;
   margin: 5% auto 0 auto;
-  padding: 20px 90px 0 90px;
+  padding: 40px 90px 0 90px;
 }
 
 ul {
@@ -36,13 +32,12 @@ button {
 }
 
 #feedback {
-  width: 400px;
-  height: 300px;
+  width: 500px;
+  height: 400px;
   padding: 5% 5% 0 5%;
   margin: 10% auto 0 auto;
 }
 
 tg-nav-button {
   float: right;
-  margin-top: 20px;
 }

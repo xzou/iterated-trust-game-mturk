@@ -1,38 +1,36 @@
-<div id="quiz">
-  <div *ngIf="!answerSubmitted" id="question-panel" class="card">
-    <h2>Quiz</h2>
-    <span id="warning" [innerHTML]="content.warning"></span>
+<div *ngIf="!answerSubmitted" id="question-panel" class="card">
+  <h2>Quiz</h2>
+  <span id="warning" [innerHTML]="content.warning"></span>
 
-    <span id="question" [innerHTML]="content.question"></span>
+  <span id="question" [innerHTML]="content.question"></span>
 
-    <form (ngSubmit)="checkAnswer()" class="type1-text">
-      <ul>
-        <li>
-          <label for="option1">
-            <input type="radio" name="quizAnswer" id="option1" [(ngModel)]="answer" value=1>
-            <span [innerHTML]="content.choiceA"></span>
-          </label>
-        </li>
-        <li>
-          <label for="option2">
-            <input type="radio" name="quizAnswer" id="option2" [(ngModel)]="answer" value=2>
-            <span [innerHTML]="content.choiceB"></span>
-          </label>
-        </li>
-      </ul>
-      <button type="submit" [disabled]="answer === ''">Submit</button>
-    </form>
-  </div> <!-- #question-panel -->
+  <form (ngSubmit)="checkAnswer()" class="type1-text">
+    <ul>
+      <li>
+        <label for="option1">
+          <input type="radio" name="quizAnswer" id="option1" [(ngModel)]="answer" value=1>
+          <span [innerHTML]="content.choiceA"></span>
+        </label>
+      </li>
+      <li>
+        <label for="option2">
+          <input type="radio" name="quizAnswer" id="option2" [(ngModel)]="answer" value=2>
+          <span [innerHTML]="content.choiceB"></span>
+        </label>
+      </li>
+    </ul>
+    <button type="submit" [disabled]="answer === ''">Submit</button>
+  </form>
+</div> <!-- #question-panel -->
 
-  <div *ngIf="answerSubmitted" id="feedback" class="card">
-    <div *ngIf="isChoiceA">
-      <span [innerHTML]="content.feedbackA"></span>
-      <tg-nav-button url="players-search" label="Proceed"></tg-nav-button>
-    </div>
+<div *ngIf="answerSubmitted" id="feedback" class="card">
+  <div *ngIf="isChoiceA">
+    <span [innerHTML]="content.feedbackA"></span>
+    <tg-nav-button url="players-search" label="Proceed"></tg-nav-button>
+  </div>
 
-    <div *ngIf="!isChoiceA">
-      <span [innerHTML]="content.feedbackB"></span>
-    </div>
-  </div> <!-- #feedback -->
+  <div *ngIf="!isChoiceA">
+    <span [innerHTML]="content.feedbackB"></span>
+  </div>
+</div> <!-- #feedback -->
 
-</div> <!-- #quiz -->
