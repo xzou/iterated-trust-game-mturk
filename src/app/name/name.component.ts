@@ -32,7 +32,6 @@ export class NameComponent implements OnInit {
   genders: string[] = ['female', 'male'];
   ip: string = '';
   isComplete: boolean = false;
-  isFilterIp: boolean = true;
 
   ngOnInit() {
     this.ipService.getIp().subscribe(ip => this.ip = ip);
