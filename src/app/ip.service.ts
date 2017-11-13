@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Jsonp } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/forkJoin';
 
 import { ParticipantService } from './participant/participant.service';
 

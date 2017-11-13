@@ -4,11 +4,11 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { CurrencyPipe } from '@angular/common';
-import 'rxjs/Rx';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 import { AppComponent } from './app.component';
 import { NameComponent } from './name/name.component';
-
 import { AppRouterModule } from './app-routing.module';
 import { GameComponent } from './game/game.component';
 import { OpponentComponent } from './opponent/opponent.component';
