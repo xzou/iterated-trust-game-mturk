@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Jsonp } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 
 import { ParticipantService } from './participant/participant.service';
 
@@ -10,12 +11,26 @@ export class IpService {
               private participantService: ParticipantService) { }
 
   isNewIp() {
-    return true;
+    return Observable.forkJoin([
+      this.getIp(),
+      this.getParticipantIps()
+    ])
+    .map((data: any[]) => {
+      let ip: string = data[0];
+      let allIps: string[] = data[1];
+      return !allIps.includes(ip);
+    });
   }
 
-  getIp() {
+  getIp(): Observable<any> {
     return this.jsonp.get('//api.ipify.org/?format=jsonp&callback=JSONP_CALLBACK')
                       .map(res => res.json().ip) 
+  }
+
+  getParticipantIps(): Observable<string[]> {
+    return this.participantService.getParticipants().map(res => {
+      return res.map(participant => participant.ip);
+    });
   }
 
   private handleError(error) {
