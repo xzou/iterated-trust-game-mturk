@@ -1,19 +1,19 @@
-#opponents-panel {
+.opponents-panel {
   width: 1150px;
   margin: auto;
   padding: 2% 0 0 0;
 }
 
-#opponents-panel ul {
+.opponents-panel ul {
   list-style-type: none;
 }
 
-#opponents-panel li {
+.opponents-panel li {
   float: left;
   margin-right: 70px;
 }
 
-#opponents-panel ul:last-child {
+.opponents-panel ul:last-child {
   margin-right: 0px;
 }
 
@@ -55,27 +55,40 @@ h4 {
   padding-left: 4%;
 }
 
-#participant, #interactive-panel, #feedback, #opponent {
+.participant, .interactive-panel, .opponent {
   float: left;
   margin-right: 60px;
 }
 
-#interactive-panel, #feedback {
-  width: 450px;
-  height: 380px;
-  position: relative;
+.interactive-panel {
+  perspective: 800px;
 }
 
-#participant .player-name {
+.interactive-elements {
+  position: relative;
+  width: 450px;
+  height: 380px;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.flip-side {
+  width: 100%;
+  height: 100%;
+  padding: 10% 10% 0 13%;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.feedback {
+  transform: rotateY(179.9deg);
+}
+
+.participant .player-name {
   background-color: #8200C7;
 }
 
-#interactive-panel, #feedback {
-  box-sizing: border-box;
-  padding: 3% 6% 0 6%;
-}
-
-#interactive-panel p {
+.interactive-panel p {
   font-size: 20px;
 }
 
@@ -129,18 +142,17 @@ input[type=range]::-moz-range-thumb {
   background: #3bd4f2;
 }
 
-#interactive-panel button,
-#feedback button {
+.interactive-panel button {
   position: absolute;
-  bottom: 50px;
-  right: 50px;
+  bottom: 40px;
+  right: 45px;
 }
 
-#feedback h4 {
-  padding: 10px 0 20px 0;
+.feedback h4 {
+  padding: 0 0 20px 0;
 }
 
-#round-num {
+.round-num {
   margin: -60px auto 10px auto;
   width: 300px;
   height: 130px;

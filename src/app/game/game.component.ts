@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy, AfterViewInit, ElementRef, ViewChildren, QueryList } from '@angular/core';
+import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 import { Http } from '@angular/http';
 
 import { OpponentComponent } from '../opponent/opponent.component';
@@ -10,7 +11,18 @@ import { CurParticipantService } from '../participant/cur-participant.service';
   selector: 'tg-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.css'],
-  providers: [ ParticipantService ]
+  providers: [ ParticipantService ],
+  animations: [
+    trigger('flip', [
+      state('active', style({
+        transform: 'rotateY(179.9deg)'
+      })),
+      state('inactive', style({
+        transform: 'rotateY(0)'
+      })),
+      transition('inactive => active', animate('500ms ease-in'))
+    ])
+  ]
 })
 
 export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
@@ -37,6 +49,7 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
   }[];
   oppArray: OpponentComponent[]; 
   playerImgPath: string = '/assets/images/player_purple.png';
+  flip: string = 'inactive';
   trialNumber: number = 1;
 
   constructor(private participantService: ParticipantService,
@@ -75,6 +88,7 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
     this.endowmentSubmitted = false;
     this.checkGameOver(); 
     this.trialNumber++;
+    this.flip = 'inactive';
   }
 
   selectOpponent(): void {
@@ -93,6 +107,8 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
     this.curParticipantService.addEndowment(this.endowment);
     this.curParticipantService.addReturn(this.oppReturn);
     this.curParticipantService.addNetGain(this.netGain);
+
+    this.flip = 'active';
   }
  
   /*
