@@ -24,6 +24,7 @@ import { RouteGuardService } from './route-guard.service';
 import { ParticipantService } from './participant/participant.service';
 import { IpService } from './ip.service';
 import { CapitalizePipe } from './capitalize.pipe';
+import { TerminationComponent } from './termination/termination.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { CapitalizePipe } from './capitalize.pipe';
     OpponentSearchComponent,
     CodeComponent,
     PayoffComponent,
-    CapitalizePipe
+    CapitalizePipe,
+    TerminationComponent
   ],
   imports: [
     BrowserModule,

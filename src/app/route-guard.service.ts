@@ -9,9 +9,17 @@ import { ParticipantService } from './participant/participant.service';
 export class RouteGuardService implements CanActivate {
 
   constructor(private ipService: IpService,
-              private participantService: ParticipantService) { }
+              private participantService: ParticipantService,
+              private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return this.ipService.isNewIp();
+    return this.ipService.isNewIp().map(res => {
+      if (res) {
+        return true;
+      } else {
+        this.router.navigateByUrl('/end', { replaceUrl: true });
+        return false;
+      }
+    });
   }
 }
