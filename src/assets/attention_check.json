@@ -1,7 +1,7 @@
 {
   "warning": "<p><strong>You must answer this question correctly to continue.</strong></p>",
   "question": "<h3>What happens if you decide to invest $0.40 during a round?</h3>",
-  "choiceA": "I get to keep $0.60 for myself, and the other $0.40 gets tripled to $1.20. The other player then decides how much to give back to me.",
+  "choiceA": "I get to keep $0.60 for myself, and the other $0.40 gets quadrupled to $1.60. The other player then decides how much to give back to me.",
   "choiceB": "I get to keep $0.40 for myself, and then the other $0.60 gets tripled to $1.80. The other player then gives me back half.",
   "feedbackA": "<p>Congratulations!</p><p>You have answered the quiz question correctly, and may now enter the game.</p><p>Click \"Proceed\" to get matched with other players online.</p>",
   "feedbackB": "<p>We're sorry. Your answer was incorrect.</p><p>Your session has been terminated.</p><p>Have a nice day!</p>" 
