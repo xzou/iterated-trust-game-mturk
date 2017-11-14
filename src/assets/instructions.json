@@ -1,7 +1,7 @@
 [
   { 
     "page": 1, 
-    "text": "<p>Today you'll be playing a game that involves making a series of decisions with other players online.</p><p>Your goal in the game is to collect as many points as possible, as the number of points you collect will determine how much money you will receive in bonus payment at the end of the game.<p><strong>Note:</strong> Please use only the navigation buttons provided to you, and do not use your browser navigation buttons or refresh the page. Using the browser \"Back\" or \"Forward\" buttons or refreshing the page will result in the termination of the experiment. Thank you for your cooperation!</p>",
+    "text": "<p>Today you'll be playing a game that involves making a series of decisions with other players online. Your goal in the game is to earn as much money as possible, as the amount of money you earn will determine how much money you will receive in bonus payment at the end of the game.</p><p><strong>Note:</strong> Please use only the navigation buttons provided to you, and do not use your browser navigation buttons or refresh the page. Using the browser \"Back\" or \"Forward\" buttons or refreshing the page will result in the termination of the game. Thank you for your cooperation!</p>",
     "img": ""
   }, 
   {
@@ -26,7 +26,7 @@
   },
   {
     "page": 6,
-    "text": "<p>After you decide how much of the $1.00 you want to invest in the other player, your investment will be <strong>tripled!</strong></p>",
+    "text": "<p>After you decide how much of the $1.00 you want to invest in the other player, your investment will be <strong>quadrupled (x4)!</strong></p>",
     "img": "/assets/images/image4.png"
   },
   {
@@ -41,7 +41,7 @@
   },
   {
     "page": 9,
-    "text": "<p>Whatever money you decide to invest will then be <strong>tripled</strong> as it is sent to the other player.</p><p>The other player will then decide how much money they would like to keep for themselves and how much to return back to you.</p>",
+    "text": "<p>Whatever money you decide to invest will then be <strong>quadrupled (x4)</strong> as it is sent to the other player.</p><p>The other player will then decide how much money they would like to keep for themselves and how much to return back to you.</p>",
     "img": "/assets/images/image4.png"
   },
   {
