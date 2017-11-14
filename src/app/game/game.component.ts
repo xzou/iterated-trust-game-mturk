@@ -34,12 +34,16 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
   oppReturn: number; 
 
   endowment: number = 0.5;
-  endowmentSubmitted: boolean = false;
-  gameOver: boolean = false;
-  inTrial: boolean = false;
+  endowmentSubmitted: boolean;
+  flip: string = 'inactive';
+  gameOver: boolean;
+  inTrial: boolean;
+  isDelay: boolean;
   netGain: number = 0;
   oppIds: number[];
   opponent: OpponentComponent; 
+  playerImgPath: string = '/assets/images/player_purple.png';
+  trialNumber: number = 1;
   oppSettings: {
     id: number,
     name: string,
@@ -48,9 +52,6 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
     img: string;
   }[];
   oppArray: OpponentComponent[]; 
-  playerImgPath: string = '/assets/images/player_purple.png';
-  flip: string = 'inactive';
-  trialNumber: number = 1;
 
   constructor(private participantService: ParticipantService,
               private curParticipantService: CurParticipantService,
@@ -98,6 +99,7 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
     this.checkDrift();
     this.curParticipantService.addOpponent(oppId + 1);
     this.curParticipantService.addProportion(this.opponent.player.meanProp);
+    this.setDelay();
   }
 
   setEndowment() {
@@ -107,7 +109,6 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
     this.curParticipantService.addEndowment(this.endowment);
     this.curParticipantService.addReturn(this.oppReturn);
     this.curParticipantService.addNetGain(this.netGain);
-
     this.flip = 'active';
   }
  
@@ -156,6 +157,15 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
     }
     let remainder = this.trialNumber % 24;
     return this.trialNumber < 84 && (remainder === 0 || remainder > 12 && remainder < 24);
+  }
+
+  setDelay(): void {
+    let prob = Math.random();
+    if (prob <= 0.5) {
+      this.isDelay = true;
+      let time = Math.random() * 4000 + 500;
+      setTimeout(() => this.isDelay = false, time);
+    }
   }
 
   /**
