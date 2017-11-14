@@ -38,7 +38,7 @@
 
           <div class="feedback flip-side card">
             <p>You invested {{ endowment | currency:'USD':true:'1.2-2' }}, and kept {{ (1 - endowment).toFixed(2) | currency:'USD':true:'1.2-2' }} for yourself.</p>
-            <p>{{ opponent.player.name }} received {{ (endowment * 3).toFixed(2) | currency:'USD':true:'1.2-2' }} and returned 
+            <p>{{ opponent.player.name }} received {{ (endowment * 4).toFixed(2) | currency:'USD':true:'1.2-2' }} and returned 
               {{ oppReturn | currency:'USD':true:'1.2-2' }} to you.</p>
             <p>On this round you earned</p>
             <h4>{{ (1 - endowment).toFixed(2) | currency:'USD':true:'1.2-2' }} + {{ oppReturn | currency:'USD':true:'1.2-2' }} = {{ netGain | currency:'USD':true:'1.2-2' }}</h4>
