@@ -1,21 +1,21 @@
 [
     {
         "id": 1,
-        "name": "Chris",
+        "name": "Player A",
         "meanProp": 0.05,
         "directions": [1, 1, -1],
         "img": ""
     },
     {
         "id": 2,
-        "name": "John",
+        "name": "Player B",
         "meanProp": 0.25,
         "directions": [-1, 1, 1],
         "img": ""
     },
     {
         "id": 3,
-        "name": "Tom",
+        "name": "Player C",
         "meanProp": 0.45,
         "directions": [-1, -1, 1],
         "img": ""

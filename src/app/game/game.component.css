@@ -28,6 +28,10 @@
   text-align: center;
 }
 
+button {
+  background-color: #f71b58;
+}
+
 #opponent-button button {
   margin-top: 20%;
   border-radius: 90%;
@@ -38,7 +42,6 @@
   -webkit-box-shadow: -1px 3px 30px -4px rgba(68,68,68,1);
   -moz-box-shadow: -1px 3px 30px -4px rgba(68,68,68,1);
   box-shadow: -1px 3px 30px -4px rgba(68,68,68,1);
-  background-color: #f71b58;
 }
 
 h4 {
@@ -126,7 +129,7 @@ input[type=range]::-webkit-slider-thumb {
   border: none;
   height: 25px;
   width: 10px;
-  background: #3bd4f2;
+  background: #f71b58;
   margin-top: -10px;
 }
 

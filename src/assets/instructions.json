@@ -11,7 +11,7 @@
   }, 
   {
     "page": 3,
-    "text": "<p>On each round, you will first press the <strong>blue</strong> button, which will pair you with the other player you are playing with on that <strong>round</strong>.</p>",
+    "text": "<p>On each round, you will first press the <strong>red</strong> button, which will pair you with the other player you are playing with on that <strong>round</strong>.</p>",
     "img": "/assets/images/image2.png"
   },
   {
@@ -36,7 +36,7 @@
   },
   {
     "page": 8,
-    "text": "<p>To recap, on each round of this game you will first press the <strong>blue</strong> button and you will be paired with one of 3 players.</p><p>You will then decide how much of $1.00 you would like to invest and how much to keep for yourself, keeping in mind that <strong>$0 is not an option.</strong></p>",
+    "text": "<p>To recap, on each round of this game you will first press the <strong>red</strong> button and you will be paired with one of 3 players.</p><p>You will then decide how much of $1.00 you would like to invest and how much to keep for yourself, keeping in mind that <strong>$0 is not an option.</strong></p>",
     "img": "/assets/images/image2.png"
   },
   {
@@ -51,7 +51,7 @@
   },
   {
     "page": 11,
-    "text": "<p>At the end of the game, we will randomly select two of your rounds to determine your bonus payment, so <strong>the best strategy is to try to win as much money as possible on each round.</strong></p>",
+    "text": "<p>At the end of the game, we will randomly select two of your rounds to determine your bonus payment, so <strong>the best strategy is to receive as much money as possible on each round.</strong></p>",
     "img": "/assets/images/image6.png"
   },
   {
