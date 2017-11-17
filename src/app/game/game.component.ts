@@ -61,7 +61,10 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
               private elementRef: ElementRef,
               private http: Http) {
     this.http.get('/assets/players.json')
-        .subscribe((res) => this.oppSettings = res.json());
+        .subscribe(res => {
+          this.oppSettings = res.json();
+          this.setColors();
+        });
   }
 
   /* 
@@ -93,7 +96,6 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
     this.checkGameOver(); 
     this.trialNumber++;
     this.flip = 'inactive';
-    this.setColors();
   }
 
   selectOpponent(): void {
@@ -165,9 +167,10 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
 
   setColors(): void {
     let oppOrder = this.randomizeOpponents();
-    oppOrder.forEach((oppId, index) => {
-      this.oppSettings[index].img = this.imgPaths[oppId];
-      this.oppArray[index].player.id = oppId + 1;
+    this.oppSettings.forEach((opponent, index) => {
+      let oppId = oppOrder[index];
+      opponent.img = this.imgPaths[oppId];
+      opponent.id = oppId + 1;
     });
   }
 
