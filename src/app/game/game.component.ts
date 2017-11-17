@@ -34,19 +34,22 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
   endowmentSubmitted: boolean;
   flip: string = 'inactive';
   gameOver: boolean;
-  imgPaths: string[] = [
-    '/assets/images/player_blue.png',
-    '/assets/images/player_yellow.png',
-    '/assets/images/player_orange.png'
-  ]
   inTrial: boolean;
-  isDelay: boolean;
   netGain: number = 0;
   oppIds: number[];
   opponent: OpponentComponent; 
   oppReturn: number; 
   playerImgPath: string = '/assets/images/player_purple.png';
   trialNumber: number = 1;
+  delayEvents = {
+    isWaitingForOpp: false,
+    isWaitingForReturn: false
+  }
+  imgPaths: string[] = [
+    '/assets/images/player_blue.png',
+    '/assets/images/player_yellow.png',
+    '/assets/images/player_orange.png'
+  ]
   oppSettings: {
     id: number,
     name: string,
@@ -105,7 +108,7 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
     this.checkDrift();
     this.curParticipantService.addOpponent(oppId + 1);
     this.curParticipantService.addProportion(this.opponent.player.meanProp);
-    this.setDelay();
+    this.setDelay('isWaitingForOpp', 0.5, 500);
   }
 
   setEndowment() {
@@ -115,6 +118,7 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
     this.curParticipantService.addEndowment(this.endowment);
     this.curParticipantService.addReturn(this.oppReturn);
     this.curParticipantService.addNetGain(this.netGain);
+    this.setDelay('isWaitingForReturn', 1, 1000);
     this.flip = 'active';
   }
  
@@ -169,12 +173,12 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
-  setDelay(): void {
+  setDelay(event: string, threshold: number, minTime: number): void {
     let prob = Math.random();
-    if (prob <= 0.5) {
-      this.isDelay = true;
-      let time = Math.random() * 4000 + 500;
-      setTimeout(() => this.isDelay = false, time);
+    if (prob <= threshold) {
+      this.delayEvents[event] = true;
+      let time = Math.random() * 3500 + minTime;
+      setTimeout(() => this.delayEvents[event] = false, time);
     }
   }
 
