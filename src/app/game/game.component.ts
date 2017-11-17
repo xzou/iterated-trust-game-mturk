@@ -30,18 +30,21 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
 
   readonly totalTrials = 96;
 
-  // Remove this later
-  oppReturn: number; 
-
   endowment: number = 0.5;
   endowmentSubmitted: boolean;
   flip: string = 'inactive';
   gameOver: boolean;
+  imgPaths: string[] = [
+    '/assets/images/player_blue.png',
+    '/assets/images/player_yellow.png',
+    '/assets/images/player_orange.png'
+  ]
   inTrial: boolean;
   isDelay: boolean;
   netGain: number = 0;
   oppIds: number[];
   opponent: OpponentComponent; 
+  oppReturn: number; 
   playerImgPath: string = '/assets/images/player_purple.png';
   trialNumber: number = 1;
   oppSettings: {
@@ -90,6 +93,7 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
     this.checkGameOver(); 
     this.trialNumber++;
     this.flip = 'inactive';
+    this.setColors();
   }
 
   selectOpponent(): void {
@@ -130,21 +134,9 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
-  createRoundOrder(): number[] {
-    let ids: number[] = [];
-    let id: number;
-    for (let i = 0; i < 3; i++) {
-      do {
-        id = Math.floor(Math.random() * 3);
-      } while (ids.includes(id));
-      ids.push(id); 
-    }
-    return ids;
-  }
-
   getOppId(): number {
     if (this.trialNumber % 3 === 1) {
-      this.oppIds = this.createRoundOrder();
+      this.oppIds = this.randomizeOpponents();
     }
     return this.oppIds.shift();
   }
@@ -157,6 +149,26 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
     }
     let remainder = this.trialNumber % 24;
     return this.trialNumber < 84 && (remainder === 0 || remainder > 12 && remainder < 24);
+  }
+
+  randomizeOpponents(): number[] {
+    let ids: number[] = [];
+    let id: number;
+    for (let i = 0; i < 3; i++) {
+      do {
+        id = Math.floor(Math.random() * 3);
+      } while (ids.includes(id));
+      ids.push(id); 
+    }
+    return ids;
+  }
+
+  setColors(): void {
+    let oppOrder = this.randomizeOpponents();
+    oppOrder.forEach((oppId, index) => {
+      this.oppSettings[index].img = this.imgPaths[oppId];
+      this.oppArray[index].player.id = oppId + 1;
+    });
   }
 
   setDelay(): void {
