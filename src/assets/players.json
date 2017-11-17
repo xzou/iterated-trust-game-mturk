@@ -10,7 +10,7 @@
         "id": 2,
         "name": "John",
         "meanProp": 0.25,
-        "directions": [-1, 1, 1, -1],
+        "directions": [-1, 1, 1],
         "img": ""
     },
     {
