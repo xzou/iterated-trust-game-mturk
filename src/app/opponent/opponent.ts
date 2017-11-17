@@ -64,8 +64,8 @@ export class Opponent {
   }
 
   getProp(mean: number) {
-    let min = mean - 0.05;
-    let max = mean + 0.05;
+    let min = mean - 0.02;
+    let max = mean + 0.02;
     return Math.random() * (max - min) + min;
   }
 }
