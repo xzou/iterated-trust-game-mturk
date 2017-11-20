@@ -83,7 +83,6 @@ export class GameComponent implements AfterViewInit, OnDestroy {
                             .subscribe();
   }
 
-
   /*
    * Component functions called when buttons clicked
    */
@@ -108,6 +107,7 @@ export class GameComponent implements AfterViewInit, OnDestroy {
 
   setEndowment() {
     this.endowmentSubmitted = true;
+    this.curParticipantService.addReactTime(this.gameService.getReactTime());
     this.oppReturn = this.opponent.player.getReturn(this.endowment);
     this.netGain = +((1 - this.endowment + this.oppReturn).toFixed(2));
     this.curParticipantService.addEndowment(this.endowment);

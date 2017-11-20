@@ -1,5 +1,5 @@
 <div id="game"> 
-  <div *ngIf="!gameOver" id="game-panel">
+  <div *ngIf="!isGameOver" id="game-panel">
     <div class="round-num"><h4>Round {{ trialNumber }}</h4></div>
     <div [hidden]="inTrial"class="opponents-panel"> 
       <div id="opponents">
@@ -63,7 +63,7 @@
     </div> <!-- #trial-panel -->
   </div> <!-- #game-panel -->
   
-  <div *ngIf="gameOver" id="game-over-panel" class="card">
+  <div *ngIf="isGameOver" id="game-over-panel" class="card">
     <p>Congratulations!</p> 
     <p>You have completed the game.</p>
     <tg-nav-button url="payoff" label="Proceed"></tg-nav-button>

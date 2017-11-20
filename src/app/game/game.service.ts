@@ -4,6 +4,8 @@ import { Injectable } from '@angular/core';
 export class GameService {
   readonly totalTrials = 84;
 
+  endowmentT0: number;
+  endowmentT1: number;
   delayEvents = {
     isWaitingForOpp: false,
     isWaitingForReturn: false
@@ -37,6 +39,11 @@ export class GameService {
     return this.oppIds.shift();
   }
 
+  getReactTime(): number {
+    this.endowmentT1 = performance.now();
+    return this.endowmentT1 - this.endowmentT0;
+  }
+
   inVolatilityPeriod(trial: number): boolean {
     let remainder = trial % 24;
     return remainder === 0 || remainder > 12 && remainder < 24;
@@ -56,10 +63,22 @@ export class GameService {
 
   setDelay(event: string, threshold: number, minTime: number): void {
     let prob = Math.random();
-    if (prob <= threshold) {
+    if (prob <= 0) {
       this.delayEvents[event] = true;
       let time = Math.random() * 3500 + minTime;
-      setTimeout(() => this.delayEvents[event] = false, time);
+      setTimeout(() => {
+        this.delayEvents[event] = false;
+        this.setTime(event);
+      }, time);
+    } else {
+      this.setTime(event);
+    }
+  }
+
+  setTime(event: string): void {
+    if (event === 'isWaitingForOpp') {
+      this.endowmentT0 = performance.now();
+      console.log('set time');
     }
   }
 }
