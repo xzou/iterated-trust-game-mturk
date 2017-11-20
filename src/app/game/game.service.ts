@@ -2,7 +2,64 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class GameService {
+  readonly totalTrials = 84;
+
+  delayEvents = {
+    isWaitingForOpp: false,
+    isWaitingForReturn: false
+  }
+  oppIds: number[];
 
   constructor() { }
 
+  checkGameOver(trial: number): boolean {
+    return trial === this.totalTrials;
+  }
+
+  /**
+   * Returns the index of the drift direction in the directions array.
+   * The direction index depends on the trial number. 
+   * E.g. in rounds 11 through 20, the shift direction can be found
+   * in directions[0].
+   */
+  getDirectionsIdx(trial: number) {
+    let idx = Math.floor(trial / 24);
+    if (trial % 24 === 0) {
+      return idx - 1;
+    }
+    return idx;
+  }
+
+  getOppId(trial: number): number {
+    if (trial % 3 === 1) {
+      this.oppIds = this.randomizeOpponents();
+    }
+    return this.oppIds.shift();
+  }
+
+  inVolatilityPeriod(trial: number): boolean {
+    let remainder = trial % 24;
+    return remainder === 0 || remainder > 12 && remainder < 24;
+  }
+
+  randomizeOpponents(): number[] {
+    let ids: number[] = [];
+    let id: number;
+    for (let i = 0; i < 3; i++) {
+      do {
+        id = Math.floor(Math.random() * 3);
+      } while (ids.includes(id));
+      ids.push(id); 
+    }
+    return ids;
+  }
+
+  setDelay(event: string, threshold: number, minTime: number): void {
+    let prob = Math.random();
+    if (prob <= threshold) {
+      this.delayEvents[event] = true;
+      let time = Math.random() * 3500 + minTime;
+      setTimeout(() => this.delayEvents[event] = false, time);
+    }
+  }
 }

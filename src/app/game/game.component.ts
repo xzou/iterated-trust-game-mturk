@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, ElementRef, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnDestroy, AfterViewInit, ElementRef, ViewChildren, QueryList } from '@angular/core';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 import { Http } from '@angular/http';
 
@@ -6,12 +6,15 @@ import { OpponentComponent } from '../opponent/opponent.component';
 import { NavButtonComponent } from '../nav-button/nav-button.component';
 import { ParticipantService } from '../participant/participant.service';
 import { CurParticipantService } from '../participant/cur-participant.service';
+import { GameService } from './game.service';
 
 @Component({
   selector: 'tg-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.css'],
-  providers: [ ParticipantService ],
+  providers: [ ParticipantService,
+               GameService 
+  ],
   animations: [
     trigger('flip', [
       state('active', style({
@@ -25,26 +28,19 @@ import { CurParticipantService } from '../participant/cur-participant.service';
   ]
 })
 
-export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
+export class GameComponent implements AfterViewInit, OnDestroy {
   @ViewChildren(OpponentComponent) opponents: QueryList<OpponentComponent>
-
-  readonly totalTrials = 84;
 
   endowment: number = 0.5;
   endowmentSubmitted: boolean;
   flip: string = 'inactive';
-  gameOver: boolean;
+  isGameOver: boolean;
   inTrial: boolean;
   netGain: number = 0;
-  oppIds: number[];
   opponent: OpponentComponent; 
   oppReturn: number; 
   playerImgPath: string = '/assets/images/player_purple.png';
   trialNumber: number = 1;
-  delayEvents = {
-    isWaitingForOpp: false,
-    isWaitingForReturn: false
-  }
   imgPaths: string[] = [
     '/assets/images/player_blue.png',
     '/assets/images/player_yellow.png',
@@ -61,6 +57,7 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
 
   constructor(private participantService: ParticipantService,
               private curParticipantService: CurParticipantService,
+              private gameService: GameService,
               private elementRef: ElementRef,
               private http: Http) {
     this.http.get('/assets/players.json')
@@ -74,14 +71,6 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
    * Angular lifecycle hooks
    */
 
-  ngOnInit() {
-  }
-
-  ngOnDestroy() {
-    this.participantService.updateParticipant(this.curParticipantService.participant)
-                            .subscribe();
-  }
-
   ngAfterViewInit() {
     this.opponents.changes.subscribe(() => {
       this.oppArray = this.opponents.toArray();
@@ -89,26 +78,32 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
     this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#FDFBEB';
   }
 
+  ngOnDestroy() {
+    this.participantService.updateParticipant(this.curParticipantService.participant)
+                            .subscribe();
+  }
+
+
   /*
-   * Component functions
+   * Component functions called when buttons clicked
    */
 
   nextTrial(): void {
     this.inTrial = false;
     this.endowmentSubmitted = false;
-    this.checkGameOver(); 
+    this.isGameOver = this.gameService.checkGameOver(this.trialNumber); 
     this.trialNumber++;
     this.flip = 'inactive';
   }
 
   selectOpponent(): void {
     this.inTrial = true;
-    let oppId = this.getOppId(); 
+    let oppId = this.gameService.getOppId(this.trialNumber); 
     this.opponent = this.oppArray[oppId];
-    this.checkDrift();
+    this.drift();
     this.curParticipantService.addOpponent(oppId + 1);
     this.curParticipantService.addProportion(this.opponent.player.meanProp);
-    this.setDelay('isWaitingForOpp', 0.5, 500);
+    this.gameService.setDelay('isWaitingForOpp', 0.5, 500);
   }
 
   setEndowment() {
@@ -118,7 +113,7 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
     this.curParticipantService.addEndowment(this.endowment);
     this.curParticipantService.addReturn(this.oppReturn);
     this.curParticipantService.addNetGain(this.netGain);
-    this.setDelay('isWaitingForReturn', 1, 1000);
+    this.gameService.setDelay('isWaitingForReturn', 1, 1000);
     this.flip = 'active';
   }
  
@@ -126,74 +121,21 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
    * Helper functions
    */
 
-  checkDrift(): void {
-    if (this.inVolatilityPeriod()) {
-      let dirIdx = this.getDirectionsIdx(this.trialNumber);
+  drift(): void {
+    if (this.gameService.inVolatilityPeriod(this.trialNumber)) {
+      let dirIdx = this.gameService.getDirectionsIdx(this.trialNumber);
       let direction = this.opponent.directions[dirIdx];
       this.opponent.player.drift(direction);
     }
   }
 
-  checkGameOver(): void {
-    if (this.trialNumber === this.totalTrials) {
-      this.gameOver = true;
-    }
-  }
-
-  getOppId(): number {
-    if (this.trialNumber % 3 === 1) {
-      this.oppIds = this.randomizeOpponents();
-    }
-    return this.oppIds.shift();
-  }
-
-  inVolatilityPeriod(): boolean {
-    let remainder = this.trialNumber % 24;
-    return remainder === 0 || remainder > 12 && remainder < 24;
-  }
-
-  randomizeOpponents(): number[] {
-    let ids: number[] = [];
-    let id: number;
-    for (let i = 0; i < 3; i++) {
-      do {
-        id = Math.floor(Math.random() * 3);
-      } while (ids.includes(id));
-      ids.push(id); 
-    }
-    return ids;
-  }
-
   setColors(): void {
-    let oppOrder = this.randomizeOpponents();
+    let oppOrder = this.gameService.randomizeOpponents();
     this.oppSettings.forEach((opponent, index) => {
       let oppId = oppOrder[index];
       opponent.img = this.imgPaths[oppId];
       opponent.id = oppId + 1;
     });
-  }
-
-  setDelay(event: string, threshold: number, minTime: number): void {
-    let prob = Math.random();
-    if (prob <= threshold) {
-      this.delayEvents[event] = true;
-      let time = Math.random() * 3500 + minTime;
-      setTimeout(() => this.delayEvents[event] = false, time);
-    }
-  }
-
-  /**
-   * Returns the index of the drift direction in the directions array.
-   * The direction index depends on the trial number. 
-   * E.g. in rounds 11 through 20, the shift direction can be found
-   * in directions[0].
-   */
-  getDirectionsIdx(trial: number) {
-    let idx = Math.floor(trial / 24);
-    if (trial % 24 === 0) {
-      return idx - 1;
-    }
-    return idx;
   }
 }
 
