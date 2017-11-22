@@ -63,7 +63,7 @@ export class GameService {
 
   setDelay(event: string, threshold: number, minTime: number): void {
     let prob = Math.random();
-    if (prob <= 0) {
+    if (prob <= threshold) {
       this.delayEvents[event] = true;
       let time = Math.random() * 3500 + minTime;
       setTimeout(() => {
@@ -78,7 +78,6 @@ export class GameService {
   setTime(event: string): void {
     if (event === 'isWaitingForOpp') {
       this.endowmentT0 = performance.now();
-      console.log('set time');
     }
   }
 }
