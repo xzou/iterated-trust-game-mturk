@@ -1,8 +1,25 @@
-#question-panel {
+.question-panel {
   width: 800px;
-  height: 570px;
-  margin: 5% auto 0 auto;
-  padding: 40px 90px 0 90px;
+  height: 660px;
+  margin: 2.5% auto 0 auto;
+  padding: 15px 90px 0 90px;
+}
+
+.feedback {
+  width: 650px;
+  height: 420px;
+  padding: 2% 5% 0 6%;
+  margin: 10% auto 0 auto;
+}
+
+.feedback h4 {
+  text-align: center;
+  padding-top: 3%;
+}
+
+.feedback-b {
+  padding-top: 3%;
+  padding-left: 8%;
 }
 
 ul {
@@ -28,16 +45,9 @@ label span {
 
 button {
   float: right;
-  margin-top: 80px;
-}
-
-#feedback {
-  width: 500px;
-  height: 400px;
-  padding: 5% 5% 0 5%;
-  margin: 10% auto 0 auto;
 }
 
 tg-nav-button {
   float: right;
+  margin-top: 40px;
 }

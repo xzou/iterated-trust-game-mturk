@@ -1,4 +1,4 @@
-<div class="card player">
+<div [@highlight]="highlight" class="card player">
   <div class="player-info">
     <div><img [src]="img"></div>
     <div class="player-name" [ngStyle]="{'background-color': player.id === 1 ? '#3483c7' : player.id === 2 ? '#ffc900' : '#ff8411'}">{{ player.name }}</div>

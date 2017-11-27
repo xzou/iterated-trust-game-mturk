@@ -24,7 +24,7 @@ import { GameService } from './game.service';
         transform: 'rotateY(0)'
       })),
       transition('inactive => active', animate('500ms ease-in'))
-    ])
+    ]),
   ]
 })
 
@@ -51,7 +51,8 @@ export class GameComponent implements AfterViewInit, OnDestroy {
     name: string,
     meanProp: number,
     directions: number[],
-    img: string;
+    img: string,
+    highlight: string
   }[];
   oppArray: OpponentComponent[]; 
 

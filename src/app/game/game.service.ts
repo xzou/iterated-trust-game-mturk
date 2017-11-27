@@ -25,11 +25,7 @@ export class GameService {
    * in directions[0].
    */
   getDirectionsIdx(trial: number) {
-    let idx = Math.floor(trial / 24);
-    if (trial % 24 === 0) {
-      return idx - 1;
-    }
-    return idx;
+    return Math.floor(trial / 28);
   }
 
   getOppId(trial: number): number {
@@ -46,7 +42,7 @@ export class GameService {
 
   inVolatilityPeriod(trial: number): boolean {
     let remainder = trial % 24;
-    return remainder === 0 || remainder > 12 && remainder < 24;
+    return trial > 10 && ((remainder >= 0 && remainder < 4) || (remainder > 12 && remainder < 24));
   }
 
   randomizeOpponents(): number[] {
@@ -63,7 +59,7 @@ export class GameService {
 
   setDelay(event: string, threshold: number, minTime: number): void {
     let prob = Math.random();
-    if (prob <= threshold) {
+    if (prob <= 0) {
       this.delayEvents[event] = true;
       let time = Math.random() * 3500 + minTime;
       setTimeout(() => {
