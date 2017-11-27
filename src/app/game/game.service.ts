@@ -46,7 +46,7 @@ export class GameService {
   }
 
   randomizeOpponents(): number[] {
-    let ids: number[] = [];
+    let ids = [];
     let id: number;
     for (let i = 0; i < 3; i++) {
       do {
@@ -59,7 +59,7 @@ export class GameService {
 
   setDelay(event: string, threshold: number, minTime: number): void {
     let prob = Math.random();
-    if (prob <= 0) {
+    if (prob <= threshold) {
       this.delayEvents[event] = true;
       let time = Math.random() * 3500 + minTime;
       setTimeout(() => {

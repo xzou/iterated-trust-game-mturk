@@ -9,9 +9,13 @@ import { Opponent } from './opponent';
   styleUrls: ['./opponent.component.css'],
   animations: [
     trigger('highlight', [
-      transition('* => active', [
-          animate(1500, style({ border: '10px solid black' }))
-      ])
+      state('white', style({
+        background: 'white'
+      })),
+      state('red', style({
+        background: '#f71b58'
+      })),
+      transition('white => red', animate('300ms ease-in'))
     ])
   ]
 })

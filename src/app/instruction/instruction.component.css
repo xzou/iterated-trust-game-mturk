@@ -1,23 +1,23 @@
-#instruction {
+.instruction {
   width: 1200px;
   margin: auto;
 }
 
-#welcome-text {
-  width: 600px;
-  height: 450px;
+.welcome-text {
+  width: 750px;
+  height: 520px;
   margin: auto;
-  padding: 80px;
-  margin-top: 4%;
-  box-sizing: content-box;
+  padding: 50px 80px 80px 80px;
+  margin-top: 7%;
+  box-sizing: border-box;
 }
 
-#welcome-text button {
+.welcome-text button {
   float: right;
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
-#welcome-text div {
+.welcome-text div {
   margin-top: 50px;
 }
 

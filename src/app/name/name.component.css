@@ -35,7 +35,7 @@ input[type=text]:focus {
 
 .text-label {
   height: 0;
-  border-bottom: 28px solid #444;
+  border-bottom: 28px solid #333;
   border-right: 25px solid transparent;
   text-align: left;
   font-size: 15px;
@@ -97,7 +97,7 @@ li label:hover {
 }
 
 li input[type=radio]:checked + label {
-  background: #444;
+  background: #555;
   color: white;
 }
 

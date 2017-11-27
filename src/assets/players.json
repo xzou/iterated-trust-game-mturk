@@ -5,7 +5,7 @@
         "meanProp": 0.02,
         "directions": [1, 1, -1],
         "img": "",
-        "highlight": "inactive"
+        "highlight": "white"
     },
     {
         "id": 2,
@@ -13,7 +13,7 @@
         "meanProp": 0.25,
         "directions": [-1, 1, 1],
         "img": "",
-        "highlight": "active"
+        "highlight": "white"
     },
     {
         "id": 3,
@@ -21,7 +21,7 @@
         "meanProp": 0.45,
         "directions": [-1, -1, 1],
         "img": "",
-        "highlight": "inactive"
+        "highlight": "white"
     }
 ]
 

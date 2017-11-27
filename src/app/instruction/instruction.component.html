@@ -1,5 +1,5 @@
-<div id="instruction">
-  <div *ngIf="page === 1" id="welcome-text" class="card">
+<div class="instruction">
+  <div *ngIf="page === 1" class="welcome-text card">
     <h2>Welcome {{ curParticipantService.name | capitalize}}!</h2>
     <div [innerHTML]="text"></div>
     <button (click)="setPage(page + 1)">Next</button>

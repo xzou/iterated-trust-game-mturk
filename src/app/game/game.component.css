@@ -55,7 +55,7 @@ h4 {
 
 #trial-panel {
   width: 1190px;
-  margin: 5% auto 0 auto;
+  margin: 8% auto 0 auto;
   padding-left: 4%;
 }
 
@@ -173,17 +173,20 @@ input[type=range]::-moz-range-thumb {
   box-shadow: -1px 3px 30px -4px rgba(68,68,68,1);
 }
 
-#game-over-panel {
-  width: 480px;
-  height: 300px;
-  margin: 10% auto 0 auto;
-  padding: 5% 5% 0 5%;
+.game-over-panel {
+  width: 550px;
+  height: 330px;
+  margin: 13% auto 0 auto;
+  padding: 0% 5% 0 5%;
   box-sizing: border-box;
+  text-align: center;
 }
 
-tg-nav-button {
-  float: right;
-  margin-top: 40px;
+.game-over-panel h4 {
+  font-size: 35px;
 }
 
-
+.nav-button {
+  width: 130px;
+  margin: 70px auto 0 auto;
+}

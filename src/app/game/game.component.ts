@@ -97,8 +97,12 @@ export class GameComponent implements AfterViewInit, OnDestroy {
   }
 
   selectOpponent(): void {
-    this.inTrial = true;
+    setTimeout(() => {
+        this.inTrial = true;
+        this.oppSettings[oppId].highlight = 'white';
+    }, 1200);
     let oppId = this.gameService.getOppId(this.trialNumber); 
+    this.oppSettings[oppId].highlight = 'red';
     this.opponent = this.oppArray[oppId];
     this.drift();
     this.curParticipantService.addOpponent(oppId + 1);
