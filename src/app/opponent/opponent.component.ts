@@ -30,6 +30,12 @@ export class OpponentComponent implements OnInit {
 
   private _player: Opponent;
 
+  pixelPaths: {} = {
+    blue: '/assets/images/pixel_blue.png',
+    yellow: '/assets/images/pixel_yellow.png',
+    orange: '/assets/images/pixel_orange.png'
+  }; 
+
   constructor() {
   }
 

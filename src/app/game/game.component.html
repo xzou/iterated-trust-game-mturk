@@ -53,7 +53,8 @@
   <div class="opponent card player">
     <div class="player-info">
       <img [src]="opponent.img">
-      <div class="player-name" [ngStyle]="{'background-color': opponent.player.id === 1 ? '#3483c7' : opponent.player.id === 2 ? '#ffc900' : '#ff8411'}">
+      <div class="player-name" 
+          [ngStyle]="{'background-image': opponent.player.id === 1 ? 'url(' + pixelPaths['blue'] + ')' : opponent.player.id === 2 ? 'url(' + pixelPaths['yellow'] + ')' : 'url(' + pixelPaths['orange'] + ')'}">
         {{ opponent.player.name }}
       </div>
     </div>

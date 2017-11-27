@@ -21,7 +21,6 @@ import { GameService } from './game.service';
         transform: 'rotateY(179.9deg)'
       })),
       state('inactive', style({
-        transform: 'rotateY(0)'
       })),
       transition('inactive => active', animate('500ms ease-in'))
     ]),
@@ -54,6 +53,11 @@ export class GameComponent implements AfterViewInit, OnDestroy {
     img: string,
     highlight: string
   }[];
+  pixelPaths: {} = {
+    blue: '/assets/images/pixel_blue.png',
+    yellow: '/assets/images/pixel_yellow.png',
+    orange: '/assets/images/pixel_orange.png'
+  }; 
   oppArray: OpponentComponent[]; 
 
   constructor(private participantService: ParticipantService,
