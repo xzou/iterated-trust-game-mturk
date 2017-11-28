@@ -6,21 +6,21 @@ import { IpService } from './ip.service';
 import { ParticipantService } from './participant/participant.service';
 
 @Injectable()
-export class RouteGuardService implements CanActivate {
+export class IpRouteGuardService implements CanActivate {
 
   constructor(private ipService: IpService,
               private participantService: ParticipantService,
               private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-/*    return this.ipService.isNewIp().map(res => {
+    return this.ipService.isNewIp().map(res => {
       if (res) {
         return true;
       } else {
         this.router.navigateByUrl('/end', { replaceUrl: true });
         return false;
       }
-    }); */
-    return true;
+    }); 
+//    return true;
   }
 }

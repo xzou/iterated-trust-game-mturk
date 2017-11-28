@@ -46,5 +46,4 @@ export class OpponentComponent implements OnInit {
   ngOnInit() {
     this._player = new Opponent(this.id, this.meanProp, this.name);
   }
-
 }

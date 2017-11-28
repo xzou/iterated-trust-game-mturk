@@ -22,7 +22,7 @@ import { OpponentSearchComponent } from './opponent-search/opponent-search.compo
 import { CodeComponent } from './code/code.component';
 import { PayoffComponent } from './payoff/payoff.component';
 
-import { RouteGuardService } from './route-guard.service';
+import { IpRouteGuardService } from './ip-route-guard.service';
 import { ParticipantService } from './participant/participant.service';
 import { IpService } from './ip.service';
 import { CapitalizePipe } from './capitalize.pipe';
@@ -55,7 +55,7 @@ import { TerminationComponent } from './termination/termination.component';
   providers: [
     IpService,
     ParticipantService,
-    RouteGuardService
+    IpRouteGuardService
   ],
   bootstrap: [AppComponent]
 })

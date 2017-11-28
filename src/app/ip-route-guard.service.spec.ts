@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { RouteGuardService } from './route-guard.service';
+import { IpRouteGuardService } from './ip-route-guard.service';
 
 describe('RouteGuardService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [RouteGuardService]
+      providers: [IpRouteGuardService]
     });
   });
 
-  it('should be created', inject([RouteGuardService], (service: RouteGuardService) => {
+  it('should be created', inject([IpRouteGuardService], (service: IpRouteGuardService) => {
     expect(service).toBeTruthy();
   }));
 });
