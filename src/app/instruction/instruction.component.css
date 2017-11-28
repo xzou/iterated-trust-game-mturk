@@ -21,9 +21,9 @@
   margin-top: 50px;
 }
 
-#instruction-text {
+.instruction-text {
   width: 35%;
-  height: 630px;
+  height: 640px;
   padding: 25px 50px 0 50px;
   margin: 3% 3% 0 3%;
   float: left;
@@ -31,13 +31,13 @@
   position: relative;
 }
 
-#instruction-text div {
-  padding-top: 18%;
+.instruction-text div {
+  padding-top: 5%;
 }
 
-#instruction-image {
+.instruction-image {
   width: 55%;
-  height: 630px;
+  height: 640px;
   margin-top: 3%;
   float: left;
   box-sizing: border-box;
@@ -52,25 +52,19 @@ img {
   text-align: center;
 }
 
-#instruction-buttons {
+.instruction-buttons {
   position: absolute;
-  bottom: 100px;
+  bottom: 90px;
   right: 60px;
 }
 
-#instruction-buttons button {
+.instruction-buttons button {
   margin-left: 55px;
 }
 
 tg-nav-button {
   position: absolute;
-  bottom: 60px;
+  bottom: 45px;
   right: 60px;
   margin-top: 10px;
 }
-
-
-
-
-
-
