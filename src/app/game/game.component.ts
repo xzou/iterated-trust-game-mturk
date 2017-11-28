@@ -122,6 +122,7 @@ export class GameComponent implements AfterViewInit, OnDestroy {
     this.curParticipantService.addEndowment(this.endowment);
     this.curParticipantService.addReturn(this.oppReturn);
     this.curParticipantService.addNetGain(this.netGain);
+    this.curParticipantService.addActualProp(this.opponent.player.proportion);
     this.gameService.setDelay('isWaitingForReturn', 1, 1000);
     this.flip = 'active';
   }

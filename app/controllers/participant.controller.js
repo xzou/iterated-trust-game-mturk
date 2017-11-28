@@ -74,6 +74,7 @@ exports.update = (req, res) => {
         participant.proportion = req.body.proportion;
         participant.reactionTime = req.body.reactionTime;
         participant.returned = req.body.returned;
+        participant.actualProportion = req.body.actualProportion;
 
         participant.save((err, data) => {
             if (err) {

@@ -17,6 +17,7 @@ export class CurParticipantService {
     mturkCode: '',
     name: '',
     payoff: 0,
+    actualProportion: [],
     endowment: [],
     netGains: [],
     proportion: [],
@@ -93,11 +94,19 @@ export class CurParticipantService {
     this._participant.payoff = amount;
   }
 
+  get actualProportions(): number[] {
+    return this._participant.actualProportion;
+  }
+
+  addActualProp(prop: number): void {
+    this._participant.actualProportion.push(prop);
+  }
+
   get netGains(): number[] {
     return this._participant.netGains;
   }
 
-  addNetGain(amount: number) {
+  addNetGain(amount: number): void {
     this._participant.netGains.push(amount);
   }
 
@@ -105,7 +114,7 @@ export class CurParticipantService {
     return this._participant.opponentNumber;
   }
 
-  addOpponent(num: number) {
+  addOpponent(num: number): void {
     this._participant.opponentNumber.push(num);
   }
 
@@ -113,7 +122,7 @@ export class CurParticipantService {
     return this._participant.endowment; 
   }
 
-  addEndowment(amount: number) {
+  addEndowment(amount: number): void {
     this._participant.endowment.push(amount);
   }
 
@@ -121,7 +130,7 @@ export class CurParticipantService {
     return this._participant.returned;
   }
 
-  addReturn(amount: number) {
+  addReturn(amount: number): void {
     this._participant.returned.push(amount);
   }
 
@@ -129,7 +138,7 @@ export class CurParticipantService {
     return this._participant.reactionTime;
   }
 
-  addReactTime(time: number) {
+  addReactTime(time: number): void {
     this._participant.reactionTime.push(time);
   }
 
@@ -137,7 +146,7 @@ export class CurParticipantService {
     return this._participant.proportion;
   }
 
-  addProportion(proportion: number) {
+  addProportion(proportion: number): void {
     this._participant.proportion.push(proportion);
   }
 }

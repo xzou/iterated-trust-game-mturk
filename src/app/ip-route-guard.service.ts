@@ -21,6 +21,5 @@ export class IpRouteGuardService implements CanActivate {
         return false;
       }
     }); 
-//    return true;
   }
 }

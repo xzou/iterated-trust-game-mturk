@@ -8,6 +8,7 @@ export class Participant {
     public mturkCode?: string;
     public name?: string;
     public payoff?: number;
+    public actualProportion?: number[];
     public endowment?: number[];
     public netGains?: number[];
     public opponentNumber?: number[];

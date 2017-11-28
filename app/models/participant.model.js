@@ -9,6 +9,7 @@ var ParticipantSchema = mongoose.Schema({
     mturkCode: String,
     name: String,
     payoff: Number,
+    actualProportion: [Number],
     endowment: [Number],
     netGains: [Number],
     opponentNumber: [Number],

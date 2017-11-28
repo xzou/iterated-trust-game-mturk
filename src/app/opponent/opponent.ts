@@ -6,6 +6,7 @@ export class Opponent {
   private _id: number;
   private _meanProp: number;
   private _name: string;
+  private _proportion: number;
 
   constructor (
     id?: number,
@@ -41,6 +42,10 @@ export class Opponent {
     this._name = name;
   }
 
+  get proportion(): number {
+    return this._proportion;
+  }
+
   /* 
    * Changes the mean proportion based on preset directions.
    * For the calculation, meanProp and rate are multiplied by 1000
@@ -59,8 +64,8 @@ export class Opponent {
   }
 
   getReturn(endowment: number) {
-    let proportion = this.getProp(this.meanProp);
-    return +((proportion * (4 * endowment)).toFixed(2)); 
+    this._proportion = this.getProp(this.meanProp);
+    return +((this._proportion * (4 * endowment)).toFixed(2)); 
   }
 
   getProp(mean: number) {
