@@ -23,7 +23,12 @@
     <div class="interactive-elements" [@flip]="flip">
       <div class="endowmment flip-side card">
         <div *ngIf="gameService.delayEvents.isWaitingForOpp" class="delay">
-          <p>Waiting for {{ opponent.player.name }}...</p>
+          <p>
+            Waiting for {{ opponent.player.name }}
+            <span class="dot">.</span>
+            <span class="dot">.</span>
+            <span class="dot">.</span>
+          </p>
         </div>
         <div *ngIf="!gameService.delayEvents.isWaitingForOpp">
           <p>How much would you like to invest?</p>
@@ -37,7 +42,12 @@
 
       <div class="feedback flip-side card">
         <div *ngIf="gameService.delayEvents.isWaitingForReturn" class="delay">
-          <p>Waiting for {{ opponent.player.name }}...</p>
+          <p>
+            Waiting for {{ opponent.player.name }}
+            <span class="dot">.</span>
+            <span class="dot">.</span>
+            <span class="dot">.</span>
+          </p>
         </div>
         <div *ngIf="!gameService.delayEvents.isWaitingForReturn">
           <p>You invested <strong>{{ endowment | currency:'USD':true:'1.2-2' }}</strong>, and kept 

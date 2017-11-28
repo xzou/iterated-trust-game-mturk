@@ -21,7 +21,7 @@ export class GameService {
   /**
    * Returns the index of the drift direction in the directions array.
    * The direction index depends on the trial number. 
-   * E.g. in rounds 11 through 20, the shift direction can be found
+   * E.g. during the first volatility period, the shift direction can be found
    * in directions[0].
    */
   getDirectionsIdx(trial: number) {

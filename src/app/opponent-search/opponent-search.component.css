@@ -8,9 +8,14 @@
 }
 
 .finding-opponent {
-  padding-top: 40%;
-  width: 200px;
+  padding-top: 37%;
+  width: 450px;
   margin: auto;
+  text-align: center;
+}
+
+.finding-opponent p {
+  font-size: 28px;
 }
 
 .opponent-found {

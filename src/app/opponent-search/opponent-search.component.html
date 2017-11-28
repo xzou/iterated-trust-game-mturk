@@ -1,6 +1,11 @@
 <div class="opponent-search card">
   <div *ngIf="!opponentFound" class="finding-opponent">
-    <p>Matching with players...</p>
+    <p>
+      Matching with players
+      <span class="dot">.</span>
+      <span class="dot">.</span>
+      <span class="dot">.</span>
+    </p>
   </div>
 
   <div *ngIf="opponentFound" class="opponent-found type1-text">

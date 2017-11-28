@@ -121,3 +121,8 @@ button[disabled] {
   width: 220px;
   margin-bottom: 6%;
 }
+
+@keyframes blink {50% { color: transparent }}
+.dot { animation: 1s blink infinite }
+.dot:nth-child(2) { animation-delay: 250ms }
+.dot:nth-child(3) { animation-delay: 500ms }
