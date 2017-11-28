@@ -6,7 +6,7 @@
   <p>The final calculation for your payoff is as follows:</p>
   <p>Round {{ idx1 + 1 }}: Net gain = {{ netGains[idx1] | currency:'USD':true:'1.2-2' }}</p>
   <p>Round {{ idx2 + 1 }}: Net gain = {{ netGains[idx2] | currency:'USD':true:'1.2-2'}}</p>
-  <h3>Payoff = {{ netGains[idx1] | currency:'USD':true:'1.2-2'}} + {{ netGains[idx2] | currency:'USD':true:'1.2-2' }} = {{ payoff | currency:'USD':true:'1.2-2'}}.</h3>
+  <h3>Payoff = {{ netGains[idx1] | currency:'USD':true:'1.2-2'}} + {{ netGains[idx2] | currency:'USD':true:'1.2-2' }} = {{ payoff | currency:'USD':true:'1.2-2'}}</h3>
   <div class="nav-button">
     <tg-nav-button url="code" label="Proceed"></tg-nav-button>
   </div>
