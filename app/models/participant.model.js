@@ -5,7 +5,6 @@ var ParticipantSchema = mongoose.Schema({
     gender: String,
     experiment: Number,
     ip: String,
-    isCorrect: Boolean,
     mturkCode: String,
     name: String,
     numCorrect: Number,
