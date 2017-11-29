@@ -42,16 +42,16 @@ export class CurParticipantService {
     this._participant.age = age;
   }
 
-  get gender(): string {
-    return this._participant.gender;
-  }
-
   get code(): string {
     return this._participant.mturkCode;
   }
 
   set code(mturkCode: string) {
     this._participant.mturkCode = mturkCode;
+  }
+
+  get gender(): string {
+    return this._participant.gender;
   }
 
   set gender(gender: string) {
