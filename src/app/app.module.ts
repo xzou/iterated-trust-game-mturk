@@ -27,6 +27,7 @@ import { ParticipantService } from './participant/participant.service';
 import { IpService } from './ip.service';
 import { CapitalizePipe } from './capitalize.pipe';
 import { TerminationComponent } from './termination/termination.component';
+import { InformedConsentComponent } from './informed-consent/informed-consent.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { TerminationComponent } from './termination/termination.component';
     CodeComponent,
     PayoffComponent,
     CapitalizePipe,
-    TerminationComponent
+    TerminationComponent,
+    InformedConsentComponent
   ],
   imports: [
     BrowserModule,

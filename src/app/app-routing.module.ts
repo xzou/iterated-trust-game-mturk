@@ -8,12 +8,14 @@ import { OpponentSearchComponent } from './opponent-search/opponent-search.compo
 import { CodeComponent } from './code/code.component';
 import { PayoffComponent } from './payoff/payoff.component';
 import { TerminationComponent } from './termination/termination.component';
+import { InformedConsentComponent } from './informed-consent/informed-consent.component';
 
 import { IpRouteGuardService } from './ip-route-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
   { path: 'main', component: NameComponent, canActivate: [IpRouteGuardService] },
+  { path: 'informed-consent', component: InformedConsentComponent },
   { path: 'game', component: GameComponent },
   { path: 'instructions', component: InstructionsComponent },
   { path: 'quiz', component: QuizComponent },
