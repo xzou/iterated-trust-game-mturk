@@ -6,16 +6,16 @@
     <strong>Purpose of study</strong>
     <div [innerHTML]="content?.purpose.par1"></div>
     <div [innerHTML]="content?.purpose.par2"></div>
-    <ul *ngFor="let item of content?.purpose.list1">
-      <li>{{ item }}</li>
+    <ul>
+      <li *ngFor="let item of content?.purpose.list1">{{ item }}</li>
     </ul>
     <div [innerHTML]="content?.purpose.par3"></div>
-    <ul *ngFor="let item of content?.purpose.list2">
-      <li>{{ item }}</li>
+    <ul>
+      <li *ngFor="let item of content?.purpose.list2">{{ item }}</li>
     </ul>
     <span [innerHTML]="content?.purpose.par4"></span>
-    <ol *ngFor="let item of content?.purpose.list3">
-      <li>{{ item }}</li>
+    <ol>
+      <li *ngFor="let item of content?.purpose.list3">{{ item }}</li>
     </ol>
   </div>
   <div>
@@ -40,8 +40,8 @@
   </div>
   <p>You may print this page for your records.</p>
   <form #consentForm="ngForm" (ngSubmit)="checkConsent()" class="quiz-radio">
-    <ul *ngFor="let choice of content?.consent; let idx = index">
-      <li>
+    <ul>
+      <li *ngFor="let choice of content?.consent; let idx=index">
         <label for="{{idx}}">
           <input type="radio" [id]="idx" name="consent" [(ngModel)]="consent" [value]="idx + 1">
           <span [innerHTML]="choice"></span>
