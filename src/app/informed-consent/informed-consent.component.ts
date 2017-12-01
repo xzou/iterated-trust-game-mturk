@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./informed-consent.component.css']
 })
 export class InformedConsentComponent implements OnInit {
-  content: {};
+  content: {[key: string]: any};
   consent: number = 0;
 
   constructor(private http: Http,
