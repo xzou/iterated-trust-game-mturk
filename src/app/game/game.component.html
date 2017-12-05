@@ -8,7 +8,7 @@
       </li>
     </ul> 
   </div> <!-- #opponents -->
-  <div id="opponent-button"><button (click)="selectOpponent()">Select Player</button></div>
+  <div id="opponent-button"><button (click)="selectOpponent()" [disabled]="oppSelected">Select Player</button></div>
 </div> <!-- #opponents-panel -->
 
 <div *ngIf="inTrial" id="trial-panel">

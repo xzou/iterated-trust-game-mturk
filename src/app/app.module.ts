@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/takeWhile';
 
 import { AppComponent } from './app.component';
 import { NameComponent } from './name/name.component';

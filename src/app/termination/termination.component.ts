@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/filter';
 
@@ -8,6 +8,7 @@ import 'rxjs/add/operator/filter';
   styleUrls: ['./termination.component.css']
 })
 export class TerminationComponent implements OnInit {
+  active: boolean = true;
   message: string = ""
   content: {};
   messages: string[] = [
@@ -19,9 +20,14 @@ export class TerminationComponent implements OnInit {
 
   ngOnInit() {
     this.route.queryParams
+        .takeWhile(() => this.active)
         .filter(params => params.condition)
         .subscribe(params => {
           this.message = this.messages[parseInt(params.condition)];
         }); 
+  }
+
+  ngOnDestroy() {
+    this.active = false;
   }
 }
