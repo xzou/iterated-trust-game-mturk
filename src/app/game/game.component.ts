@@ -46,12 +46,13 @@ export class GameComponent implements AfterViewInit, OnDestroy {
     '/assets/images/player_yellow.png',
     '/assets/images/player_orange.png'
   ]
-  initPropAndDirections: any[] = [
-    { prop: .02, dir: [1, 1, -1] },
-    { prop: .25, dir: [-1, 1, 1] },
-    { prop: .45, dir: [-1, -1, 1] }
+  initSettings: any[] = [
+    { actualId: 1, prop: .02, dir: [1, 1, -1] },
+    { actualId: 2, prop: .25, dir: [-1, 1, 1] },
+    { actualId: 3, prop: .45, dir: [-1, -1, 1] }
   ];
   oppSettings: {
+    actualId: number,
     id: number,
     name: string,
     meanProp: number,
@@ -118,7 +119,7 @@ export class GameComponent implements AfterViewInit, OnDestroy {
     this.oppSettings[oppId].highlight = 'red';
     this.opponent = this.oppArray[oppId];
     this.drift();
-    this.curParticipantService.addOpponent(oppId + 1);
+    this.curParticipantService.addOpponent(this.oppSettings[oppId].actualId);
     this.curParticipantService.addProportion(this.opponent.player.meanProp);
     this.gameService.setDelay('isWaitingForOpp', 0.5, 500);
   }
@@ -162,7 +163,8 @@ export class GameComponent implements AfterViewInit, OnDestroy {
   }
 
   setInitProportions(opponent: any, oppId: number): void {
-    opponent.meanProp = this.initPropAndDirections[oppId].prop;
-    opponent.directions = this.initPropAndDirections[oppId].dir;
+    opponent.meanProp = this.initSettings[oppId].prop;
+    opponent.directions = this.initSettings[oppId].dir;
+    opponent.actualId = this.initSettings[oppId].actualId; 
   }
 }
